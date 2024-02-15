@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Configuration | Observable Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="./_import/style.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_import/style.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="modulepreload" href="./_observablehq/client.js">
+<link rel="modulepreload" href="./_observablehq/runtime.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.js">
+<link rel="apple-touch-icon" href="https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png">
+<link rel="icon" type="image/png" href="https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png" sizes="512x512">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9B88TP6PKQ"></script>
+<script>window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-9B88TP6PKQ');</script>
+<script type="module" async src="./_import/analytics.js"></script>
+<script type="module">
+
+import "./_observablehq/client.js";
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">Observable Framework</a></li>
+  </ol>
+  <div id="observablehq-search" data-root="./"><input type="search" placeholder="Search"></div>
+  <div id="observablehq-search-results"></div>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),s=o.getAttribute("data-root"),a=()=>import(`${s}_observablehq/search.js`);t.addEventListener("focus",a,{once:!0}),t.addEventListener("keydown",a,{once:!0});const r=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(r.classList.add("observablehq-sidebar-open"),t.focus(),t.select(),e.preventDefault())}),t.addEventListener("blur",()=>r.classList.remove("observablehq-sidebar-open"));}</script>
+  <ol>
+    <li class="observablehq-link"><a href="./getting-started">Getting started</a></li>
+    <li class="observablehq-link"><a href="./routing">Routing</a></li>
+    <li class="observablehq-link"><a href="./markdown">Markdown</a></li>
+    <li class="observablehq-link"><a href="./javascript">JavaScript</a></li>
+    <li class="observablehq-link"><a href="./loaders">Data loaders</a></li>
+    <li class="observablehq-link"><a href="./themes">Themes</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./config">Configuration</a></li></ol>
+    <details>
+      <summary>JavaScript</summary>
+      <ol>
+    <li class="observablehq-link"><a href="./javascript/reactivity">Reactivity</a></li>
+    <li class="observablehq-link"><a href="./javascript/display">Display</a></li>
+    <li class="observablehq-link"><a href="./javascript/inputs">Inputs</a></li>
+    <li class="observablehq-link"><a href="./javascript/imports">Imports</a></li>
+    <li class="observablehq-link"><a href="./javascript/files">Files</a></li>
+    <li class="observablehq-link"><a href="./javascript/promises">Promises</a></li>
+    <li class="observablehq-link"><a href="./javascript/generators">Generators</a></li>
+    <li class="observablehq-link"><a href="./javascript/mutables">Mutables</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>CSS</summary>
+      <ol>
+    <li class="observablehq-link"><a href="./css/card">Card</a></li>
+    <li class="observablehq-link"><a href="./css/color">Color</a></li>
+    <li class="observablehq-link"><a href="./css/grid">Grid</a></li>
+    <li class="observablehq-link"><a href="./css/note">Note</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Inputs</summary>
+      <ol>
+    <li class="observablehq-link"><a href="./inputs/button">Button</a></li>
+    <li class="observablehq-link"><a href="./inputs/checkbox">Checkbox</a></li>
+    <li class="observablehq-link"><a href="./inputs/color">Color</a></li>
+    <li class="observablehq-link"><a href="./inputs/date">Date</a></li>
+    <li class="observablehq-link"><a href="./inputs/file">File</a></li>
+    <li class="observablehq-link"><a href="./inputs/form">Form</a></li>
+    <li class="observablehq-link"><a href="./inputs/radio">Radio</a></li>
+    <li class="observablehq-link"><a href="./inputs/range">Range</a></li>
+    <li class="observablehq-link"><a href="./inputs/search">Search</a></li>
+    <li class="observablehq-link"><a href="./inputs/select">Select</a></li>
+    <li class="observablehq-link"><a href="./inputs/table">Table</a></li>
+    <li class="observablehq-link"><a href="./inputs/text">Text</a></li>
+    <li class="observablehq-link"><a href="./inputs/textarea">Textarea</a></li>
+    <li class="observablehq-link"><a href="./inputs/toggle">Toggle</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Libraries</summary>
+      <ol>
+    <li class="observablehq-link"><a href="./lib/arrow">Apache Arrow</a></li>
+    <li class="observablehq-link"><a href="./lib/arquero">Arquero</a></li>
+    <li class="observablehq-link"><a href="./lib/csv">CSV</a></li>
+    <li class="observablehq-link"><a href="./lib/d3">D3</a></li>
+    <li class="observablehq-link"><a href="./lib/dot">DOT (Graphviz)</a></li>
+    <li class="observablehq-link"><a href="./lib/duckdb">DuckDB</a></li>
+    <li class="observablehq-link"><a href="./lib/htl">Hypertext Literal</a></li>
+    <li class="observablehq-link"><a href="./lib/leaflet">Leaflet</a></li>
+    <li class="observablehq-link"><a href="./lib/lodash">Lodash</a></li>
+    <li class="observablehq-link"><a href="./lib/mapbox-gl">Mapbox GL JS</a></li>
+    <li class="observablehq-link"><a href="./lib/mermaid">Mermaid</a></li>
+    <li class="observablehq-link"><a href="./lib/xlsx">Microsoft Excel (XLSX)</a></li>
+    <li class="observablehq-link"><a href="./lib/generators">Observable Generators</a></li>
+    <li class="observablehq-link"><a href="./lib/inputs">Observable Inputs</a></li>
+    <li class="observablehq-link"><a href="./lib/plot">Observable Plot</a></li>
+    <li class="observablehq-link"><a href="./lib/shapefile">Shapefile</a></li>
+    <li class="observablehq-link"><a href="./lib/sqlite">SQLite</a></li>
+    <li class="observablehq-link"><a href="./lib/tex">TeX</a></li>
+    <li class="observablehq-link"><a href="./lib/topojson">TopoJSON</a></li>
+    <li class="observablehq-link"><a href="./lib/vega-lite">Vega-Lite</a></li>
+    <li class="observablehq-link"><a href="./lib/zip">ZIP</a></li>
+      </ol>
+    </details>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="./contributing">Contributing</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),o=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?o.checked=r==="true":o.indeterminate=!0;for(const t of document.querySelectorAll("#observablehq-sidebar summary")){const s=t.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${t.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="#observablehq-main h1:not(:first-of-type), #observablehq-main h2:not(h1 + h2):has(a.observablehq-header-anchor)">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#root">root</a></li>
+<li class="observablehq-secondary-link"><a href="#output">output</a></li>
+<li class="observablehq-secondary-link"><a href="#theme">theme</a></li>
+<li class="observablehq-secondary-link"><a href="#style">style</a></li>
+<li class="observablehq-secondary-link"><a href="#title">title</a></li>
+<li class="observablehq-secondary-link"><a href="#sidebar">sidebar</a></li>
+<li class="observablehq-secondary-link"><a href="#pages">pages</a></li>
+<li class="observablehq-secondary-link"><a href="#pager">pager</a></li>
+<li class="observablehq-secondary-link"><a href="#head">head</a></li>
+<li class="observablehq-secondary-link"><a href="#header">header</a></li>
+<li class="observablehq-secondary-link"><a href="#footer">footer</a></li>
+<li class="observablehq-secondary-link"><a href="#base">base</a></li>
+<li class="observablehq-secondary-link"><a href="#toc">toc</a></li>
+<li class="observablehq-secondary-link"><a href="#search">search</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; align-items: center; gap: 0.5rem; height: 2.2rem; margin: -1.5rem -2rem 2rem -2rem; padding: 0.5rem 2rem; border-bottom: solid 1px var(--theme-foreground-faintest); font: 500 16px var(--sans-serif);">
+  <a href="https://observablehq.com/" style="display: flex; align-items: center;">
+    <svg width="22" height="22" viewBox="0 0 21.92930030822754 22.68549919128418" fill="currentColor">
+      <path d="M10.9646 18.9046C9.95224 18.9046 9.07507 18.6853 8.33313 18.2467C7.59386 17.8098 7.0028 17.1909 6.62722 16.4604C6.22789 15.7003 5.93558 14.8965 5.75735 14.0684C5.56825 13.1704 5.47613 12.2574 5.48232 11.3427C5.48232 10.6185 5.52984 9.92616 5.62578 9.26408C5.7208 8.60284 5.89715 7.93067 6.15391 7.24843C6.41066 6.56618 6.74143 5.97468 7.14438 5.47308C7.56389 4.9592 8.1063 4.54092 8.72969 4.25059C9.38391 3.93719 10.1277 3.78091 10.9646 3.78091C11.977 3.78091 12.8542 4.00021 13.5962 4.43879C14.3354 4.87564 14.9265 5.49454 15.3021 6.22506C15.6986 6.97704 15.9883 7.7744 16.1719 8.61712C16.3547 9.459 16.447 10.3681 16.447 11.3427C16.447 12.067 16.3995 12.7593 16.3035 13.4214C16.2013 14.1088 16.0206 14.7844 15.7644 15.437C15.4994 16.1193 15.1705 16.7108 14.7739 17.2124C14.3774 17.714 13.8529 18.1215 13.1996 18.4349C12.5463 18.7483 11.8016 18.9046 10.9646 18.9046ZM12.8999 13.3447C13.4242 12.8211 13.7159 12.0966 13.7058 11.3427C13.7058 10.5639 13.4436 9.89654 12.92 9.34074C12.3955 8.78495 11.7441 8.50705 10.9646 8.50705C10.1852 8.50705 9.53376 8.78495 9.00928 9.34074C8.49569 9.87018 8.21207 10.5928 8.22348 11.3427C8.22348 12.1216 8.48572 12.7889 9.00928 13.3447C9.53376 13.9005 10.1852 14.1784 10.9646 14.1784C11.7441 14.1784 12.3891 13.9005 12.8999 13.3447ZM10.9646 22.6855C17.0199 22.6855 21.9293 17.6068 21.9293 11.3427C21.9293 5.07871 17.0199 0 10.9646 0C4.90942 0 0 5.07871 0 11.3427C0 17.6068 4.90942 22.6855 10.9646 22.6855Z"></path>
+    </svg>
+  </a>
+  <div style="display: flex; flex-grow: 1; justify-content: space-between; align-items: baseline;">
+    <a href="https://observablehq.com/framework/">
+      <span class="hide-if-small">Observable</span> Framework
+    </a>
+    <span style="display: flex; align-items: baseline; gap: 0.5rem; font-size: 14px;">
+      <a target="_blank" href="https://github.com/observablehq/framework/releases"><span>1.0.0</span></a>
+      <a target="_blank" href="https://github.com/observablehq/framework"><span>GitHub</span></a>
+    </span>
+  </div>
+</div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="configuration" tabindex="-1"><a class="observablehq-header-anchor" href="#configuration">Configuration</a></h1>
+<p>A <code>observablehq.config.js</code> (or <code>observablehq.config.ts</code>) file located in the project root allows configuration of your project. For example, a site might use a config file to set the project’s title and the sidebar contents:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">title</span>: <span class="hljs-string">"My awesome project"</span>,
+  <span class="hljs-attr">pages</span>: [
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">"Getting ever more awesome"</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">"/getting-awesome"</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">"Being totally awesome"</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">"/being-awesome"</span>},
+    {<span class="hljs-attr">name</span>: <span class="hljs-string">"Staying as awesome as ever"</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">"/staying-awesome"</span>}
+  ]
+};
+</code></pre>
+<p>Configuration files are optional. Any options you don’t specify will use the default values described below.</p>
+<p>Configuration files are code. This means they can be dynamic, for example referencing environment variables. The configuration is effectively baked-in to the generated static site at build time. During preview, you must restart the preview server for changes to the configuration file to take effect.</p>
+<p>The following options are supported.</p>
+<h2 id="root" tabindex="-1"><a class="observablehq-header-anchor" href="#root">root</a></h2>
+<p>The path to the source root; defaults to <code>docs</code>.</p>
+<h2 id="output" tabindex="-1"><a class="observablehq-header-anchor" href="#output">output</a></h2>
+<p>The path to the output root; defaults to <code>dist</code>.</p>
+<h2 id="theme" tabindex="-1"><a class="observablehq-header-anchor" href="#theme">theme</a></h2>
+<p>The theme name or names, if any; defaults to <code>default</code>. <a href="./themes">Themes</a> affect visual appearance by specifying colors and fonts, or by augmenting default styles. The theme option is a shorthand alternative to specifying a <a href="#style">custom stylesheet</a>.</p>
+<p>To force light mode:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-attr">theme</span>: <span class="hljs-string">"light"</span>
+</code></pre>
+<p>To force dark mode:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-attr">theme</span>: <span class="hljs-string">"dark"</span>
+</code></pre>
+<p>For dashboards, to compose the default light and dark themes with <code>alt</code> and <code>wide</code>:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-attr">theme</span>: <span class="hljs-string">"dashboard"</span>
+</code></pre>
+<p>Or more explicitly:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-attr">theme</span>: [<span class="hljs-string">"air"</span>, <span class="hljs-string">"near-midnight"</span>, <span class="hljs-string">"alt"</span>, <span class="hljs-string">"wide"</span>]
+</code></pre>
+<p>You can also apply a theme to an individual page via the <a href="./markdown#front-matter">front matter</a>:</p>
+<pre data-language="yaml"><code class="language-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">theme:</span> [<span class="hljs-string">glacier</span>, <span class="hljs-string">slate</span>]
+<span class="hljs-meta">---
+</span></code></pre>
+<p>See the <a href="./themes">list of available themes</a> for more.</p>
+<h2 id="style" tabindex="-1"><a class="observablehq-header-anchor" href="#style">style</a></h2>
+<p>The path to a custom stylesheet, relative to the source root. This option takes precedence over the <a href="#theme">theme option</a> (if any), providing more control by allowing you to remove or alter the default stylesheet and define a custom theme.</p>
+<p>The custom stylesheet should typically import <code>observablehq:default.css</code> to build on the default styles. You can also import any of the built-in themes. For example, to create a stylesheet that builds up on the <code>air</code> theme, create a <code>custom-style.css</code> file in the <code>docs</code> folder, then set the style option to <code>custom-style.css</code>:</p>
+<pre data-language="css"><code class="language-css"><span class="hljs-keyword">@import</span> url(<span class="hljs-string">"observablehq:default.css"</span>);
+<span class="hljs-keyword">@import</span> url(<span class="hljs-string">"observablehq:theme-air.css"</span>);
+
+<span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attr">--theme-foreground-focus</span>: green;
+}
+</code></pre>
+<p>The default styles are implemented using CSS custom properties. These properties are designed to be defined by themes or custom stylesheets. The following custom properties are supported:</p>
+<ul>
+<li><code>--theme-foreground</code> - page foreground color, <em>e.g.</em> black</li>
+<li><code>--theme-background</code> - page background color, <em>e.g.</em> white</li>
+<li><code>--theme-background-alt</code> - block background color, <em>e.g.</em> light gray</li>
+<li><code>--theme-foreground-alt</code> - heading foreground color, <em>e.g.</em> brown</li>
+<li><code>--theme-foreground-muted</code> - secondary text foreground color, <em>e.g.</em> dark gray</li>
+<li><code>--theme-foreground-faint</code> - faint border color, <em>e.g.</em> middle gray</li>
+<li><code>--theme-foreground-fainter</code> - fainter border color, <em>e.g.</em> light gray</li>
+<li><code>--theme-foreground-faintest</code> - faintest border color, <em>e.g.</em> almost white</li>
+<li><code>--theme-foreground-focus</code> - emphasis foreground color, <em>e.g.</em> blue</li>
+</ul>
+<p>A custom stylesheet can be applied to an individual page via the <a href="./markdown#front-matter">front matter</a>:</p>
+<pre data-language="yaml"><code class="language-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">style:</span> <span class="hljs-string">custom-style.css</span>
+<span class="hljs-meta">---
+</span></code></pre>
+<p>In this case, the path to the stylesheet is resolved relative to the page’s Markdown file rather than the source root.</p>
+<h2 id="title" tabindex="-1"><a class="observablehq-header-anchor" href="#title">title</a></h2>
+<p>The project’s title. If specified, this text is used for the link to the home page in the sidebar, and to complement the titles of the webpages. For instance, a page titled “Sales” in a project titled “ACME, Inc.” will display “Sales | ACME, Inc.” in the browser’s title bar. If not specified, the home page link will appear as “Home” in the sidebar, and page titles will be shown as-is.</p>
+<h2 id="sidebar" tabindex="-1"><a class="observablehq-header-anchor" href="#sidebar">sidebar</a></h2>
+<p>Whether to show the sidebar. Defaults to true if <strong>pages</strong> is not empty.</p>
+<h2 id="pages" tabindex="-1"><a class="observablehq-header-anchor" href="#pages">pages</a></h2>
+<p>An array containing pages and/or sections. If not specified, it defaults to all Markdown files found in the source root in directory listing order.</p>
+<p>The following TypeScript interfaces describe pages and sections:</p>
+<pre data-language="ts"><code class="language-ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Page</span> {
+  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">path</span>: <span class="hljs-built_in">string</span>;
+}
+</code></pre>
+<pre data-language="ts"><code class="language-ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Section</span> {
+  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">pages</span>: <span class="hljs-title class_">Page</span>[];
+  open?: <span class="hljs-built_in">boolean</span>;
+}
+</code></pre>
+<p>If a section’s <strong>open</strong> option is not set, it defaults to true.</p>
+<p>Projects can have “unlisted” pages that are not included in the pages list. These pages will still be accessible if linked from other pages or visited directly, but they won’t be listed in the sidebar or linked to via the previous &amp; next footer.</p>
+<p>The pages list should <em>not</em> include the root page, <code>index.md</code>. Also, we don’t recommend using query strings or anchor fragments, as these will prevent the previous &amp; next footer links from navigating.</p>
+<h2 id="pager" tabindex="-1"><a class="observablehq-header-anchor" href="#pager">pager</a></h2>
+<p>Whether to show the previous &amp; next footer links; defaults to true.</p>
+<h2 id="head" tabindex="-1"><a class="observablehq-header-anchor" href="#head">head</a></h2>
+<p>An HTML fragment to add to the head. Defaults to the empty string.</p>
+<h2 id="header" tabindex="-1"><a class="observablehq-header-anchor" href="#header">header</a></h2>
+<p>An HTML fragment to add to the header. Defaults to the empty string.</p>
+<h2 id="footer" tabindex="-1"><a class="observablehq-header-anchor" href="#footer">footer</a></h2>
+<p>An HTML fragment to add to the footer. Defaults to “Built with Observable.”</p>
+<h2 id="base" tabindex="-1"><a class="observablehq-header-anchor" href="#base">base</a></h2>
+<p>The base path when serving the site. Currently this only affects the custom 404 page, if any.</p>
+<h2 id="toc" tabindex="-1"><a class="observablehq-header-anchor" href="#toc">toc</a></h2>
+<p>The table of contents configuration.</p>
+<p>The following TypeScript interface describes this option:</p>
+<pre data-language="ts"><code class="language-ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">TableOfContents</span> {
+  show?: <span class="hljs-built_in">boolean</span>;
+  label?: <span class="hljs-built_in">string</span>;
+}
+</code></pre>
+<p>If <strong>show</strong> is not set, it defaults to true. If <strong>label</strong> is not set, it defaults to “Contents”. The <strong>toc</strong> option can also be set to a boolean, in which case it is shorthand for <strong>toc.show</strong>.</p>
+<p>If shown, the table of contents enumerates the second-level headings (H2 elements, such as <code>## Section name</code>) on the right-hand side of the page. The currently-shown section is highlighted in the table of contents.</p>
+<p>The table of contents configuration can also be set in the page’s YAML front matter. The page-level configuration takes precedence over the project-level configuration. For example, to disable the table of contents on a particular page:</p>
+<pre data-language="yaml"><code class="language-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">toc:</span> <span class="hljs-literal">false</span>
+<span class="hljs-meta">---
+</span></code></pre>
+<h2 id="search" tabindex="-1"><a class="observablehq-header-anchor" href="#search">search</a></h2>
+<p>Whether to enable <a href="./search">search</a> on the project; defaults to false.</p>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./themes"><span>Themes</span></a><a rel="next" href="./javascript/reactivity"><span>Reactivity</span></a></nav>
+<div>© 2024 Observable, Inc.</div>
+</footer>
+</div>

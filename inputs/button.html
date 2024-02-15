@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Button input | Observable Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="../_import/style.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="../_import/style.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/htl@0.3.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/isoformat@0.2.1/+esm">
+<link rel="apple-touch-icon" href="https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png">
+<link rel="icon" type="image/png" href="https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png" sizes="512x512">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9B88TP6PKQ"></script>
+<script>window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-9B88TP6PKQ');</script>
+<script type="module" async src="../_import/analytics.js"></script>
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+
+define({id: "ff278329", inputs: ["view","Inputs"], outputs: ["replay"], body: (view,Inputs) => {
+const replay = view(Inputs.button("Replay"));
+return {replay};
+}});
+
+define({id: "19d058f5", inputs: ["getComputedStyle"], outputs: ["canvas","context"], body: (getComputedStyle) => {
+const canvas = document.querySelector("#canvas");
+const context = canvas.getContext("2d");
+context.fillStyle = getComputedStyle(canvas).color;
+return {canvas,context};
+}});
+
+define({id: "1db63cfe", inputs: ["replay","canvas","context"], outputs: ["progress"], body: (replay,canvas,context) => {
+replay; // run this block when the button is clicked
+const progress = (function* () {
+  for (let i = canvas.width; i >= 0; --i) {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillRect(0, 0, i, canvas.height);
+    yield canvas;
+  }
+})();
+return {progress};
+}});
+
+define({id: "ec18e415", inputs: ["view","Inputs"], outputs: ["clicks"], body: (view,Inputs) => {
+const clicks = view(Inputs.button("Click me"));
+return {clicks};
+}});
+
+define({id: "df0cee46", inputs: ["clicks","display"], body: async (clicks,display) => {
+display(await(
+clicks
+))
+}});
+
+define({id: "72b40fb1", inline: true, inputs: ["clicks","display"], body: async (clicks,display) => {
+display(await(
+clicks
+))
+}});
+
+define({id: "fad50d76", inputs: ["view","Inputs"], outputs: ["time"], body: (view,Inputs) => {
+const time = view(Inputs.button("Update", {value: null, reduce: () => new Date}));
+return {time};
+}});
+
+define({id: "6e044753", inputs: ["time","display"], body: async (time,display) => {
+display(await(
+time
+))
+}});
+
+define({id: "c13bd072", inputs: ["view","Inputs"], outputs: ["counter"], body: (view,Inputs) => {
+const counter = view(Inputs.button([
+  ["Increment", value => value + 1],
+  ["Decrement", value => value - 1],
+  ["Reset", value => 0]
+], {value: 0, label: "Counter"}));
+return {counter};
+}});
+
+define({id: "503fd723", inputs: ["counter","display"], body: async (counter,display) => {
+display(await(
+counter
+))
+}});
+
+define({id: "32ad0a4b", inputs: ["view","Inputs"], outputs: ["x"], body: (view,Inputs) => {
+const x = view(Inputs.button());
+return {x};
+}});
+
+define({id: "de403478", inputs: ["view","Inputs","html"], outputs: ["y"], body: (view,Inputs,html) => {
+const y = view(Inputs.button(html`<i>Fancy</i>`));
+return {y};
+}});
+
+define({id: "df1c04d2", inputs: ["view","Inputs"], outputs: ["confirm"], body: (view,Inputs) => {
+const confirm = view(Inputs.button("OK", {label: "Continue?"}));
+return {confirm};
+}});
+
+define({id: "2a62b541", inline: true, inputs: ["confirm","display"], body: async (confirm,display) => {
+display(await(
+confirm ? "Confirmed!" : "Awaiting confirmation..."
+))
+}});
+
+define({id: "16962f9e", inputs: ["Inputs","time","display"], body: async (Inputs,time,display) => {
+display(await(
+Inputs.button("Copy to clipboard", {value: null, reduce: () => navigator.clipboard.writeText(time)})
+))
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="../">Observable Framework</a></li>
+  </ol>
+  <div id="observablehq-search" data-root="../"><input type="search" placeholder="Search"></div>
+  <div id="observablehq-search-results"></div>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),s=o.getAttribute("data-root"),a=()=>import(`${s}_observablehq/search.js`);t.addEventListener("focus",a,{once:!0}),t.addEventListener("keydown",a,{once:!0});const r=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(r.classList.add("observablehq-sidebar-open"),t.focus(),t.select(),e.preventDefault())}),t.addEventListener("blur",()=>r.classList.remove("observablehq-sidebar-open"));}</script>
+  <ol>
+    <li class="observablehq-link"><a href="../getting-started">Getting started</a></li>
+    <li class="observablehq-link"><a href="../routing">Routing</a></li>
+    <li class="observablehq-link"><a href="../markdown">Markdown</a></li>
+    <li class="observablehq-link"><a href="../javascript">JavaScript</a></li>
+    <li class="observablehq-link"><a href="../loaders">Data loaders</a></li>
+    <li class="observablehq-link"><a href="../themes">Themes</a></li>
+    <li class="observablehq-link"><a href="../config">Configuration</a></li></ol>
+    <details>
+      <summary>JavaScript</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../javascript/reactivity">Reactivity</a></li>
+    <li class="observablehq-link"><a href="../javascript/display">Display</a></li>
+    <li class="observablehq-link"><a href="../javascript/inputs">Inputs</a></li>
+    <li class="observablehq-link"><a href="../javascript/imports">Imports</a></li>
+    <li class="observablehq-link"><a href="../javascript/files">Files</a></li>
+    <li class="observablehq-link"><a href="../javascript/promises">Promises</a></li>
+    <li class="observablehq-link"><a href="../javascript/generators">Generators</a></li>
+    <li class="observablehq-link"><a href="../javascript/mutables">Mutables</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>CSS</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../css/card">Card</a></li>
+    <li class="observablehq-link"><a href="../css/color">Color</a></li>
+    <li class="observablehq-link"><a href="../css/grid">Grid</a></li>
+    <li class="observablehq-link"><a href="../css/note">Note</a></li>
+      </ol>
+    </details>
+    <details open class="observablehq-section-active">
+      <summary>Inputs</summary>
+      <ol>
+    <li class="observablehq-link observablehq-link-active"><a href="./button">Button</a></li>
+    <li class="observablehq-link"><a href="./checkbox">Checkbox</a></li>
+    <li class="observablehq-link"><a href="./color">Color</a></li>
+    <li class="observablehq-link"><a href="./date">Date</a></li>
+    <li class="observablehq-link"><a href="./file">File</a></li>
+    <li class="observablehq-link"><a href="./form">Form</a></li>
+    <li class="observablehq-link"><a href="./radio">Radio</a></li>
+    <li class="observablehq-link"><a href="./range">Range</a></li>
+    <li class="observablehq-link"><a href="./search">Search</a></li>
+    <li class="observablehq-link"><a href="./select">Select</a></li>
+    <li class="observablehq-link"><a href="./table">Table</a></li>
+    <li class="observablehq-link"><a href="./text">Text</a></li>
+    <li class="observablehq-link"><a href="./textarea">Textarea</a></li>
+    <li class="observablehq-link"><a href="./toggle">Toggle</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Libraries</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../lib/arrow">Apache Arrow</a></li>
+    <li class="observablehq-link"><a href="../lib/arquero">Arquero</a></li>
+    <li class="observablehq-link"><a href="../lib/csv">CSV</a></li>
+    <li class="observablehq-link"><a href="../lib/d3">D3</a></li>
+    <li class="observablehq-link"><a href="../lib/dot">DOT (Graphviz)</a></li>
+    <li class="observablehq-link"><a href="../lib/duckdb">DuckDB</a></li>
+    <li class="observablehq-link"><a href="../lib/htl">Hypertext Literal</a></li>
+    <li class="observablehq-link"><a href="../lib/leaflet">Leaflet</a></li>
+    <li class="observablehq-link"><a href="../lib/lodash">Lodash</a></li>
+    <li class="observablehq-link"><a href="../lib/mapbox-gl">Mapbox GL JS</a></li>
+    <li class="observablehq-link"><a href="../lib/mermaid">Mermaid</a></li>
+    <li class="observablehq-link"><a href="../lib/xlsx">Microsoft Excel (XLSX)</a></li>
+    <li class="observablehq-link"><a href="../lib/generators">Observable Generators</a></li>
+    <li class="observablehq-link"><a href="../lib/inputs">Observable Inputs</a></li>
+    <li class="observablehq-link"><a href="../lib/plot">Observable Plot</a></li>
+    <li class="observablehq-link"><a href="../lib/shapefile">Shapefile</a></li>
+    <li class="observablehq-link"><a href="../lib/sqlite">SQLite</a></li>
+    <li class="observablehq-link"><a href="../lib/tex">TeX</a></li>
+    <li class="observablehq-link"><a href="../lib/topojson">TopoJSON</a></li>
+    <li class="observablehq-link"><a href="../lib/vega-lite">Vega-Lite</a></li>
+    <li class="observablehq-link"><a href="../lib/zip">ZIP</a></li>
+      </ol>
+    </details>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="../contributing">Contributing</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),o=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?o.checked=r==="true":o.indeterminate=!0;for(const t of document.querySelectorAll("#observablehq-sidebar summary")){const s=t.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${t.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="#observablehq-main h1:not(:first-of-type), #observablehq-main h2:not(h1 + h2):has(a.observablehq-header-anchor)">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#options">Options</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; align-items: center; gap: 0.5rem; height: 2.2rem; margin: -1.5rem -2rem 2rem -2rem; padding: 0.5rem 2rem; border-bottom: solid 1px var(--theme-foreground-faintest); font: 500 16px var(--sans-serif);">
+  <a href="https://observablehq.com/" style="display: flex; align-items: center;">
+    <svg width="22" height="22" viewBox="0 0 21.92930030822754 22.68549919128418" fill="currentColor">
+      <path d="M10.9646 18.9046C9.95224 18.9046 9.07507 18.6853 8.33313 18.2467C7.59386 17.8098 7.0028 17.1909 6.62722 16.4604C6.22789 15.7003 5.93558 14.8965 5.75735 14.0684C5.56825 13.1704 5.47613 12.2574 5.48232 11.3427C5.48232 10.6185 5.52984 9.92616 5.62578 9.26408C5.7208 8.60284 5.89715 7.93067 6.15391 7.24843C6.41066 6.56618 6.74143 5.97468 7.14438 5.47308C7.56389 4.9592 8.1063 4.54092 8.72969 4.25059C9.38391 3.93719 10.1277 3.78091 10.9646 3.78091C11.977 3.78091 12.8542 4.00021 13.5962 4.43879C14.3354 4.87564 14.9265 5.49454 15.3021 6.22506C15.6986 6.97704 15.9883 7.7744 16.1719 8.61712C16.3547 9.459 16.447 10.3681 16.447 11.3427C16.447 12.067 16.3995 12.7593 16.3035 13.4214C16.2013 14.1088 16.0206 14.7844 15.7644 15.437C15.4994 16.1193 15.1705 16.7108 14.7739 17.2124C14.3774 17.714 13.8529 18.1215 13.1996 18.4349C12.5463 18.7483 11.8016 18.9046 10.9646 18.9046ZM12.8999 13.3447C13.4242 12.8211 13.7159 12.0966 13.7058 11.3427C13.7058 10.5639 13.4436 9.89654 12.92 9.34074C12.3955 8.78495 11.7441 8.50705 10.9646 8.50705C10.1852 8.50705 9.53376 8.78495 9.00928 9.34074C8.49569 9.87018 8.21207 10.5928 8.22348 11.3427C8.22348 12.1216 8.48572 12.7889 9.00928 13.3447C9.53376 13.9005 10.1852 14.1784 10.9646 14.1784C11.7441 14.1784 12.3891 13.9005 12.8999 13.3447ZM10.9646 22.6855C17.0199 22.6855 21.9293 17.6068 21.9293 11.3427C21.9293 5.07871 17.0199 0 10.9646 0C4.90942 0 0 5.07871 0 11.3427C0 17.6068 4.90942 22.6855 10.9646 22.6855Z"></path>
+    </svg>
+  </a>
+  <div style="display: flex; flex-grow: 1; justify-content: space-between; align-items: baseline;">
+    <a href="https://observablehq.com/framework/">
+      <span class="hide-if-small">Observable</span> Framework
+    </a>
+    <span style="display: flex; align-items: baseline; gap: 0.5rem; font-size: 14px;">
+      <a target="_blank" href="https://github.com/observablehq/framework/releases"><span>1.0.0</span></a>
+      <a target="_blank" href="https://github.com/observablehq/framework"><span>GitHub</span></a>
+    </span>
+  </div>
+</div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="button-input" tabindex="-1"><a class="observablehq-header-anchor" href="#button-input">Button input</a></h1>
+<p><a href="https://github.com/observablehq/inputs/blob/main/README.md#button" target="_blank">API</a> · <a href="https://github.com/observablehq/inputs/blob/main/src/button.js" target="_blank">Source</a> · The button input emits an <em>input</em> event when you click it. Buttons may be used to trigger the evaluation of cells, say to restart an animation. For example, below is an animation that progressively hides a bar. Clicking the button will restart the animation.</p>
+<canvas id="canvas" width="360" height="20" style="max-width: 100%; color: var(--theme-foreground-focus); border: solid 1px var(--theme-foreground);">
+</canvas><div><div id="cell-ff278329" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> replay = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">button</span>(<span class="hljs-string">"Replay"</span>));
+</code></pre>
+</div><p>The code block below references <code>replay</code>, so it will run automatically whenever the replay button is clicked.</p>
+<div id="cell-19d058f5" class="observablehq observablehq--block"></div>
+<div><div id="cell-1db63cfe" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js">replay; <span class="hljs-comment">// run this block when the button is clicked</span>
+<span class="hljs-keyword">const</span> progress = (<span class="hljs-keyword">function</span>* () {
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = canvas.<span class="hljs-property">width</span>; i &gt;= <span class="hljs-number">0</span>; --i) {
+    context.<span class="hljs-title function_">clearRect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, canvas.<span class="hljs-property">width</span>, canvas.<span class="hljs-property">height</span>);
+    context.<span class="hljs-title function_">fillRect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, i, canvas.<span class="hljs-property">height</span>);
+    <span class="hljs-keyword">yield</span> canvas;
+  }
+})();
+</code></pre>
+</div><div class="note">The <code>progress</code> top-level variable is declared as a <a href="../javascript/generators">generator</a>. This causes the Observable runtime to automatically advance the generator on each animation frame. If you prefer, you could write this animation using a standard <code>requestAnimationFrame</code> loop, but generators are nice because the animation will automatically be interrupted when the code is <a href="../javascript/reactivity#invalidation">invalidated</a>.</div>
+<p>You can also use buttons to count clicks. While the value of a button is often not needed, it defaults to zero and is incremented each time the button is clicked.</p>
+<div><div id="cell-ec18e415" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> clicks = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">button</span>(<span class="hljs-string">"Click me"</span>));
+</code></pre>
+</div><div><div id="cell-df0cee46" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">clicks
+</code></pre>
+</div><p>You have clicked <span id="cell-72b40fb1" class="observablehq--loading"></span> times.</p>
+<pre data-language="md"><code class="language-md">You have clicked ${clicks} times.
+</code></pre>
+<p>While buttons count clicks by default, you can change the behavior by specifying the <em>value</em> and <em>reduce</em> options: <em>value</em> is the initial value, and <em>reduce</em> is called whenever the button is clicked, being passed the current value and returning the new value. The value of the button below is the last time the button was clicked, or null if the button has not been clicked.</p>
+<div><div id="cell-fad50d76" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> time = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">button</span>(<span class="hljs-string">"Update"</span>, {<span class="hljs-attr">value</span>: <span class="hljs-literal">null</span>, <span class="hljs-attr">reduce</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>}));
+</code></pre>
+</div><div id="cell-6e044753" class="observablehq observablehq--block observablehq--loading"></div>
+<p>Note that even if the value of the button doesn’t change, it will still trigger any cells that reference the button’s value to run. (The Observable runtime listens for <em>input</em> events on the view, and doesn’t check whether the value of the view has changed.)</p>
+<p>For multiple buttons, pass an array of [<em>content</em>, <em>reduce</em>] tuples. For example, to have a counter that can be incremented, decremented, and reset:</p>
+<div><div id="cell-c13bd072" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> counter = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">button</span>([
+  [<span class="hljs-string">"Increment"</span>, <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value + <span class="hljs-number">1</span>],
+  [<span class="hljs-string">"Decrement"</span>, <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value - <span class="hljs-number">1</span>],
+  [<span class="hljs-string">"Reset"</span>, <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> <span class="hljs-number">0</span>]
+], {<span class="hljs-attr">value</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">label</span>: <span class="hljs-string">"Counter"</span>}));
+</code></pre>
+</div><div><div id="cell-503fd723" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">counter
+</code></pre>
+</div><p>The first argument to <code>Inputs.button()</code> is the contents of the button. It’s not required, but is strongly encouraged.</p>
+<div><div id="cell-32ad0a4b" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> x = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">button</span>());
+</code></pre>
+</div><p>The contents of the button input can be an HTML element if desired, say for control over typography.</p>
+<div><div id="cell-de403478" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> y = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">button</span>(html`<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span>Fancy<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>`</span>));
+</code></pre>
+</div><p>Like other basic inputs, buttons can have an optional label, which can also be either a text string or an HTML element.</p>
+<div><div id="cell-df1c04d2" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> confirm = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">button</span>(<span class="hljs-string">"OK"</span>, {<span class="hljs-attr">label</span>: <span class="hljs-string">"Continue?"</span>}));
+</code></pre>
+</div><p>You can change the rendered text in Markdown based on whether a button is clicked. Try clicking the <code>OK</code> button with the  <code>Continue?</code> label.</p>
+<pre data-language="md"><code class="language-md">confirm ? "Confirmed!" : "Awaiting confirmation..."
+</code></pre>
+<p><span id="cell-2a62b541" class="observablehq--loading"></span></p>
+<p>You can also use a button to copy something to the clipboard.</p>
+<div><div id="cell-16962f9e" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">button</span>(<span class="hljs-string">"Copy to clipboard"</span>, {<span class="hljs-attr">value</span>: <span class="hljs-literal">null</span>, <span class="hljs-attr">reduce</span>: <span class="hljs-function">() =&gt;</span> navigator.<span class="hljs-property">clipboard</span>.<span class="hljs-title function_">writeText</span>(time)})
+</code></pre>
+</div><h2 id="options" tabindex="-1"><a class="observablehq-header-anchor" href="#options">Options</a></h2>
+<p><strong>Inputs.button(<em>content</em>, <em>options</em>)</strong></p>
+<p>The available button input options are:</p>
+<ul>
+<li><em>label</em> - a label; either a string or an HTML element</li>
+<li><em>required</em> - if true, the initial value defaults to undefined.</li>
+<li><em>value</em> - the initial value; defaults to 0 or null if <em>required</em> is false</li>
+<li><em>reduce</em> - a function to update the value on click; by default returns <em>value</em> + 1</li>
+<li><em>width</em> - the width of the input (not including the label)</li>
+<li><em>disabled</em> - whether input is disabled; defaults to false</li>
+</ul>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="../css/note"><span>Note</span></a><a rel="next" href="./checkbox"><span>Checkbox</span></a></nav>
+<div>© 2024 Observable, Inc.</div>
+</footer>
+</div>

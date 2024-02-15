@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Table input | Observable Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="../_import/style.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="../_import/style.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-array@3.2.4/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-axis@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-brush@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-chord@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-color@3.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-contour@4.0.2/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-dispatch@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-drag@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-dsv@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-ease@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-fetch@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-force@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-format@3.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-geo@3.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-hierarchy@3.1.2/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-interpolate@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-path@3.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-polygon@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-quadtree@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-random@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-scale@4.0.2/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-selection@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-shape@3.2.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-time-format@4.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-time@3.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-timer@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-transition@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-zoom@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3@7.8.5/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/delaunator@5.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/htl@0.3.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/internmap@2.0.3/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/isoformat@0.2.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/robust-predicates@3.0.2/+esm">
+<link rel="apple-touch-icon" href="https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png">
+<link rel="icon" type="image/png" href="https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png" sizes="512x512">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9B88TP6PKQ"></script>
+<script>window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-9B88TP6PKQ');</script>
+<script type="module" async src="../_import/analytics.js"></script>
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+
+define({id: "7e0a226a", inputs: ["Inputs","penguins","display"], body: async (Inputs,penguins,display) => {
+display(await(
+Inputs.table(penguins)
+))
+}});
+
+define({id: "902c3e5b", inputs: ["penguins","display"], body: async (penguins,display) => {
+display(await(
+penguins.columns
+))
+}});
+
+define({id: "bcaf636e", inputs: ["Inputs","penguins","display"], body: async (Inputs,penguins,display) => {
+display(await(
+Inputs.table(penguins, {
+  columns: [
+    "species",
+    "culmen_length_mm",
+    "culmen_depth_mm",
+    "flipper_length_mm"
+  ],
+  header: {
+    species: "Penguin Species",
+    culmen_length_mm: "Culmen length (mm)",
+    flipper_length_mm: "Flipper length (mm)",
+    culmen_depth_mm: "Culmen Depth (mm)"
+  }
+})
+))
+}});
+
+define({id: "aeb7124a", inputs: ["Inputs","penguins","display"], body: async (Inputs,penguins,display) => {
+display(await(
+Inputs.table(penguins, {sort: "body_mass_g", reverse: true})
+))
+}});
+
+define({id: "5a7847f6", inputs: ["view","Inputs","penguins"], outputs: ["selection"], body: (view,Inputs,penguins) => {
+const selection = view(Inputs.table(penguins, {required: false}));
+return {selection};
+}});
+
+define({id: "faa83bf8", inputs: ["selection","display"], body: async (selection,display) => {
+display(await(
+selection // Try selecting rows above!
+))
+}});
+
+define({id: "70ece346", inputs: ["Inputs","penguins","display"], body: async (Inputs,penguins,display) => {
+display(await(
+Inputs.table(penguins, {
+  format: {
+    culmen_length_mm: (x) => x.toFixed(1),
+    culmen_depth_mm: (x) => x.toFixed(1),
+    sex: (x) => x === "MALE" ? "M" : x === "FEMALE" ? "F" : ""
+  }
+})
+))
+}});
+
+define({id: "ba1a3c55", inputs: ["Inputs","penguins","sparkbar","d3","display"], body: async (Inputs,penguins,sparkbar,d3,display) => {
+display(await(
+Inputs.table(penguins, {
+  format: {
+    culmen_length_mm: sparkbar(d3.max(penguins, d => d.culmen_length_mm)),
+    culmen_depth_mm: sparkbar(d3.max(penguins, d => d.culmen_depth_mm)),
+    flipper_length_mm: sparkbar(d3.max(penguins, d => d.flipper_length_mm)),
+    body_mass_g: sparkbar(d3.max(penguins, d => d.body_mass_g)),
+    sex: (x) => x.toLowerCase()
+  }
+})
+))
+}});
+
+define({id: "d376c429", inputs: ["htl"], outputs: ["sparkbar"], body: (htl) => {
+function sparkbar(max) {
+  return (x) => htl.html`<div style="
+    background: var(--theme-green);
+    color: black;
+    font: 10px/1.6 var(--sans-serif);
+    width: ${100 * x / max}%;
+    float: right;
+    padding-right: 3px;
+    box-sizing: border-box;
+    overflow: visible;
+    display: flex;
+    justify-content: end;">${x.toLocaleString("en-US")}`
+}
+return {sparkbar};
+}});
+
+define({id: "a1cd61ec", inputs: ["Inputs","penguins","display"], body: async (Inputs,penguins,display) => {
+display(await(
+Inputs.table(penguins, {
+  width: {
+    culmen_length_mm: 140,
+    culmen_depth_mm: 140,
+    flipper_length_mm: 140
+  },
+  align: {
+    culmen_length_mm: "right",
+    culmen_depth_mm: "center",
+    flipper_length_mm: "left"
+  },
+  rows: 18,
+  maxWidth: 840,
+  multiple: false,
+  layout: "fixed"
+})
+))
+}});
+
+define({id: "56ff2ac7", inputs: ["penguins","display"], body: async (penguins,display) => {
+display(await(
+penguins.slice(0, 2)
+))
+}});
+
+define({id: "9a12ae0f", inputs: ["penguins","display"], body: async (penguins,display) => {
+display(await(
+[1, 3, 7, 9].map((i) => penguins[i])
+))
+}});
+
+define({id: "891fa1d0", inputs: ["penguins","display"], body: async (penguins,display) => {
+display(await(
+penguins[4]
+))
+}});
+
+define({id: "72f08813", inputs: ["Inputs","penguins","display"], body: async (Inputs,penguins,display) => {
+display(await(
+Inputs.table(penguins, {
+  value: [1, 3, 7, 9].map((i) => penguins[i]),
+  multiple: true
+})
+))
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="../">Observable Framework</a></li>
+  </ol>
+  <div id="observablehq-search" data-root="../"><input type="search" placeholder="Search"></div>
+  <div id="observablehq-search-results"></div>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),s=o.getAttribute("data-root"),a=()=>import(`${s}_observablehq/search.js`);t.addEventListener("focus",a,{once:!0}),t.addEventListener("keydown",a,{once:!0});const r=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(r.classList.add("observablehq-sidebar-open"),t.focus(),t.select(),e.preventDefault())}),t.addEventListener("blur",()=>r.classList.remove("observablehq-sidebar-open"));}</script>
+  <ol>
+    <li class="observablehq-link"><a href="../getting-started">Getting started</a></li>
+    <li class="observablehq-link"><a href="../routing">Routing</a></li>
+    <li class="observablehq-link"><a href="../markdown">Markdown</a></li>
+    <li class="observablehq-link"><a href="../javascript">JavaScript</a></li>
+    <li class="observablehq-link"><a href="../loaders">Data loaders</a></li>
+    <li class="observablehq-link"><a href="../themes">Themes</a></li>
+    <li class="observablehq-link"><a href="../config">Configuration</a></li></ol>
+    <details>
+      <summary>JavaScript</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../javascript/reactivity">Reactivity</a></li>
+    <li class="observablehq-link"><a href="../javascript/display">Display</a></li>
+    <li class="observablehq-link"><a href="../javascript/inputs">Inputs</a></li>
+    <li class="observablehq-link"><a href="../javascript/imports">Imports</a></li>
+    <li class="observablehq-link"><a href="../javascript/files">Files</a></li>
+    <li class="observablehq-link"><a href="../javascript/promises">Promises</a></li>
+    <li class="observablehq-link"><a href="../javascript/generators">Generators</a></li>
+    <li class="observablehq-link"><a href="../javascript/mutables">Mutables</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>CSS</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../css/card">Card</a></li>
+    <li class="observablehq-link"><a href="../css/color">Color</a></li>
+    <li class="observablehq-link"><a href="../css/grid">Grid</a></li>
+    <li class="observablehq-link"><a href="../css/note">Note</a></li>
+      </ol>
+    </details>
+    <details open class="observablehq-section-active">
+      <summary>Inputs</summary>
+      <ol>
+    <li class="observablehq-link"><a href="./button">Button</a></li>
+    <li class="observablehq-link"><a href="./checkbox">Checkbox</a></li>
+    <li class="observablehq-link"><a href="./color">Color</a></li>
+    <li class="observablehq-link"><a href="./date">Date</a></li>
+    <li class="observablehq-link"><a href="./file">File</a></li>
+    <li class="observablehq-link"><a href="./form">Form</a></li>
+    <li class="observablehq-link"><a href="./radio">Radio</a></li>
+    <li class="observablehq-link"><a href="./range">Range</a></li>
+    <li class="observablehq-link"><a href="./search">Search</a></li>
+    <li class="observablehq-link"><a href="./select">Select</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./table">Table</a></li>
+    <li class="observablehq-link"><a href="./text">Text</a></li>
+    <li class="observablehq-link"><a href="./textarea">Textarea</a></li>
+    <li class="observablehq-link"><a href="./toggle">Toggle</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Libraries</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../lib/arrow">Apache Arrow</a></li>
+    <li class="observablehq-link"><a href="../lib/arquero">Arquero</a></li>
+    <li class="observablehq-link"><a href="../lib/csv">CSV</a></li>
+    <li class="observablehq-link"><a href="../lib/d3">D3</a></li>
+    <li class="observablehq-link"><a href="../lib/dot">DOT (Graphviz)</a></li>
+    <li class="observablehq-link"><a href="../lib/duckdb">DuckDB</a></li>
+    <li class="observablehq-link"><a href="../lib/htl">Hypertext Literal</a></li>
+    <li class="observablehq-link"><a href="../lib/leaflet">Leaflet</a></li>
+    <li class="observablehq-link"><a href="../lib/lodash">Lodash</a></li>
+    <li class="observablehq-link"><a href="../lib/mapbox-gl">Mapbox GL JS</a></li>
+    <li class="observablehq-link"><a href="../lib/mermaid">Mermaid</a></li>
+    <li class="observablehq-link"><a href="../lib/xlsx">Microsoft Excel (XLSX)</a></li>
+    <li class="observablehq-link"><a href="../lib/generators">Observable Generators</a></li>
+    <li class="observablehq-link"><a href="../lib/inputs">Observable Inputs</a></li>
+    <li class="observablehq-link"><a href="../lib/plot">Observable Plot</a></li>
+    <li class="observablehq-link"><a href="../lib/shapefile">Shapefile</a></li>
+    <li class="observablehq-link"><a href="../lib/sqlite">SQLite</a></li>
+    <li class="observablehq-link"><a href="../lib/tex">TeX</a></li>
+    <li class="observablehq-link"><a href="../lib/topojson">TopoJSON</a></li>
+    <li class="observablehq-link"><a href="../lib/vega-lite">Vega-Lite</a></li>
+    <li class="observablehq-link"><a href="../lib/zip">ZIP</a></li>
+      </ol>
+    </details>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="../contributing">Contributing</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),o=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?o.checked=r==="true":o.indeterminate=!0;for(const t of document.querySelectorAll("#observablehq-sidebar summary")){const s=t.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${t.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="#observablehq-main h1:not(:first-of-type), #observablehq-main h2:not(h1 + h2):has(a.observablehq-header-anchor)">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#options">Options</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; align-items: center; gap: 0.5rem; height: 2.2rem; margin: -1.5rem -2rem 2rem -2rem; padding: 0.5rem 2rem; border-bottom: solid 1px var(--theme-foreground-faintest); font: 500 16px var(--sans-serif);">
+  <a href="https://observablehq.com/" style="display: flex; align-items: center;">
+    <svg width="22" height="22" viewBox="0 0 21.92930030822754 22.68549919128418" fill="currentColor">
+      <path d="M10.9646 18.9046C9.95224 18.9046 9.07507 18.6853 8.33313 18.2467C7.59386 17.8098 7.0028 17.1909 6.62722 16.4604C6.22789 15.7003 5.93558 14.8965 5.75735 14.0684C5.56825 13.1704 5.47613 12.2574 5.48232 11.3427C5.48232 10.6185 5.52984 9.92616 5.62578 9.26408C5.7208 8.60284 5.89715 7.93067 6.15391 7.24843C6.41066 6.56618 6.74143 5.97468 7.14438 5.47308C7.56389 4.9592 8.1063 4.54092 8.72969 4.25059C9.38391 3.93719 10.1277 3.78091 10.9646 3.78091C11.977 3.78091 12.8542 4.00021 13.5962 4.43879C14.3354 4.87564 14.9265 5.49454 15.3021 6.22506C15.6986 6.97704 15.9883 7.7744 16.1719 8.61712C16.3547 9.459 16.447 10.3681 16.447 11.3427C16.447 12.067 16.3995 12.7593 16.3035 13.4214C16.2013 14.1088 16.0206 14.7844 15.7644 15.437C15.4994 16.1193 15.1705 16.7108 14.7739 17.2124C14.3774 17.714 13.8529 18.1215 13.1996 18.4349C12.5463 18.7483 11.8016 18.9046 10.9646 18.9046ZM12.8999 13.3447C13.4242 12.8211 13.7159 12.0966 13.7058 11.3427C13.7058 10.5639 13.4436 9.89654 12.92 9.34074C12.3955 8.78495 11.7441 8.50705 10.9646 8.50705C10.1852 8.50705 9.53376 8.78495 9.00928 9.34074C8.49569 9.87018 8.21207 10.5928 8.22348 11.3427C8.22348 12.1216 8.48572 12.7889 9.00928 13.3447C9.53376 13.9005 10.1852 14.1784 10.9646 14.1784C11.7441 14.1784 12.3891 13.9005 12.8999 13.3447ZM10.9646 22.6855C17.0199 22.6855 21.9293 17.6068 21.9293 11.3427C21.9293 5.07871 17.0199 0 10.9646 0C4.90942 0 0 5.07871 0 11.3427C0 17.6068 4.90942 22.6855 10.9646 22.6855Z"></path>
+    </svg>
+  </a>
+  <div style="display: flex; flex-grow: 1; justify-content: space-between; align-items: baseline;">
+    <a href="https://observablehq.com/framework/">
+      <span class="hide-if-small">Observable</span> Framework
+    </a>
+    <span style="display: flex; align-items: baseline; gap: 0.5rem; font-size: 14px;">
+      <a target="_blank" href="https://github.com/observablehq/framework/releases"><span>1.0.0</span></a>
+      <a target="_blank" href="https://github.com/observablehq/framework"><span>GitHub</span></a>
+    </span>
+  </div>
+</div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="table-input" tabindex="-1"><a class="observablehq-header-anchor" href="#table-input">Table input</a></h1>
+<p><a href="https://github.com/observablehq/inputs/blob/main/README.md#table" target="_blank">API</a> · <a href="https://github.com/observablehq/inputs/blob/main/src/table.js" target="_blank">Source</a> · The table input displays tabular data. It’s fast: rows are rendered lazily on scroll. It sorts: click a header to sort, and click again to reverse. And it selects: click a checkbox on any row, and the selected rows are exported as a view value. (And for searching, see the <a href="./search">search input</a>.)</p>
+<p>By default, all columns are visible. Only the first dozen rows are initially visible, but you can scroll to see more. Column headers are fixed for readability.</p>
+<div><div id="cell-7e0a226a" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">table</span>(penguins)
+</code></pre>
+</div><p>To show a subset of columns, or to reorder them, pass an array of property names
+as the <em>columns</em> option. By default, columns are inferred from <em>data</em>.columns if
+present, and otherwise by iterating over the data to union the property names.</p>
+<p>The <em>header</em> option lets you redefine the column title; this doesn’t change the
+name used to reference the data.</p>
+<div><div id="cell-902c3e5b" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">penguins.<span class="hljs-property">columns</span>
+</code></pre>
+</div><div><div id="cell-bcaf636e" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">table</span>(penguins, {
+  <span class="hljs-attr">columns</span>: [
+    <span class="hljs-string">"species"</span>,
+    <span class="hljs-string">"culmen_length_mm"</span>,
+    <span class="hljs-string">"culmen_depth_mm"</span>,
+    <span class="hljs-string">"flipper_length_mm"</span>
+  ],
+  <span class="hljs-attr">header</span>: {
+    <span class="hljs-attr">species</span>: <span class="hljs-string">"Penguin Species"</span>,
+    <span class="hljs-attr">culmen_length_mm</span>: <span class="hljs-string">"Culmen length (mm)"</span>,
+    <span class="hljs-attr">flipper_length_mm</span>: <span class="hljs-string">"Flipper length (mm)"</span>,
+    <span class="hljs-attr">culmen_depth_mm</span>: <span class="hljs-string">"Culmen Depth (mm)"</span>
+  }
+})
+</code></pre>
+</div><p>By default, rows are displayed in input order. You can change the order by
+specifying the name of a column to <em>sort</em> by, and optionally the <em>reverse</em>
+option for descending order. The male Gentoo penguins are the largest in this
+dataset, for example. Undefined values go to the end.</p>
+<div><div id="cell-aeb7124a" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">table</span>(penguins, {<span class="hljs-attr">sort</span>: <span class="hljs-string">"body_mass_g"</span>, <span class="hljs-attr">reverse</span>: <span class="hljs-literal">true</span>})
+</code></pre>
+</div><p>Tables are <a href="../javascript/inputs#view(element)">view-compatible</a>: using the
+view function, you can use a table to select rows and refer to them from other
+cells, say to chart a subset of the data. Click the checkbox on the left edge of
+a row to select it, and click the checkbox in the header row to clear the
+selection. You can shift-click to select a range of rows.</p>
+<div><div id="cell-5a7847f6" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> selection = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">table</span>(penguins, {<span class="hljs-attr">required</span>: <span class="hljs-literal">false</span>}));
+</code></pre>
+</div><div><div id="cell-faa83bf8" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">selection <span class="hljs-comment">// Try selecting rows above!</span>
+</code></pre>
+</div><p>The <em>required</em> option determines the selection when no items are selected from
+the table. If it is true (default), the selection contains the full dataset.
+Otherwise, the selection is empty.</p>
+<p>The table input assumes that all values in a given column are the same type,
+and chooses a suitable formatter based on the first non-null value in each
+column.</p>
+<ul>
+<li>Numbers are formatted using
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString"><em>number</em>.toLocaleString</a>;</li>
+<li>Dates are formatted in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO8601</a>;</li>
+<li>undefined and NaN values are empty;</li>
+<li>everything else is displayed as-is.</li>
+</ul>
+<p>To override the default formatting, pass <em>format</em> options for the desired
+columns.</p>
+<div><div id="cell-70ece346" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">table</span>(penguins, {
+  <span class="hljs-attr">format</span>: {
+    <span class="hljs-attr">culmen_length_mm</span>: <span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> x.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">1</span>),
+    <span class="hljs-attr">culmen_depth_mm</span>: <span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> x.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">1</span>),
+    <span class="hljs-attr">sex</span>: <span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> x === <span class="hljs-string">"MALE"</span> ? <span class="hljs-string">"M"</span> : x === <span class="hljs-string">"FEMALE"</span> ? <span class="hljs-string">"F"</span> : <span class="hljs-string">""</span>
+  }
+})
+</code></pre>
+</div><p>The <em>format</em> function can return a text string or an HTML element.
+For example, this can be used to render inline visualizations such as bars or <a href="https://observablehq.com/@mbostock/covid-cases-by-state">sparklines</a>.</p>
+<div><div id="cell-ba1a3c55" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">table</span>(penguins, {
+  <span class="hljs-attr">format</span>: {
+    <span class="hljs-attr">culmen_length_mm</span>: <span class="hljs-title function_">sparkbar</span>(d3.<span class="hljs-title function_">max</span>(penguins, <span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> d.<span class="hljs-property">culmen_length_mm</span>)),
+    <span class="hljs-attr">culmen_depth_mm</span>: <span class="hljs-title function_">sparkbar</span>(d3.<span class="hljs-title function_">max</span>(penguins, <span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> d.<span class="hljs-property">culmen_depth_mm</span>)),
+    <span class="hljs-attr">flipper_length_mm</span>: <span class="hljs-title function_">sparkbar</span>(d3.<span class="hljs-title function_">max</span>(penguins, <span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> d.<span class="hljs-property">flipper_length_mm</span>)),
+    <span class="hljs-attr">body_mass_g</span>: <span class="hljs-title function_">sparkbar</span>(d3.<span class="hljs-title function_">max</span>(penguins, <span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> d.<span class="hljs-property">body_mass_g</span>)),
+    <span class="hljs-attr">sex</span>: <span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> x.<span class="hljs-title function_">toLowerCase</span>()
+  }
+})
+</code></pre>
+</div><div><div id="cell-d376c429" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">sparkbar</span>(<span class="hljs-params">max</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">x</span>) =&gt;</span> htl.<span class="hljs-property">html</span><span class="hljs-string">`&lt;div style="
+    background: var(--theme-green);
+    color: black;
+    font: 10px/1.6 var(--sans-serif);
+    width: <span class="hljs-subst">${<span class="hljs-number">100</span> * x / max}</span>%;
+    float: right;
+    padding-right: 3px;
+    box-sizing: border-box;
+    overflow: visible;
+    display: flex;
+    justify-content: end;"&gt;<span class="hljs-subst">${x.toLocaleString(<span class="hljs-string">"en-US"</span>)}</span>`</span>
+}
+</code></pre>
+</div><p>There’s a similar <em>width</em> option if you want to give certain columns specific
+widths. The table input defaults to a fixed <em>layout</em> if there are twelve or
+fewer columns; this improves performance and avoids reflow when scrolling.</p>
+<p>You can switch <em>layout</em> to auto if you prefer sizing columns based on content.
+This makes the columns widths resize with the data, which can cause the columns
+to jump around as the user scrolls. A horizontal scroll bar is added if the
+total width exceeds the table’s width.</p>
+<p>Set <em>layout</em> to fixed to pack all the columns into the width of the table.</p>
+<p>The table’s width can be controlled by the <em>width</em> option, in pixels. Individual
+column widths can alternatively be defined by specifying an object with column
+names as keys, and widths as values. Use the <em>maxWidth</em> option if the sum of
+column widths exceeds the desired table’s width.</p>
+<p>The <em>align</em> option allows to change the text-alignment of cells, which can be
+right, left, or center; it defaults to right for numeric columns, and left for
+everything else.</p>
+<p>The <em>rows</em> option indicates the number of rows to display; it defaults to 11.5.
+The <em>height</em> and <em>maxHeight</em> options respectively set the height and maximum
+height of the table, in pixels. The height defaults to (rows + 1) * 22 - 1.</p>
+<div><div id="cell-a1cd61ec" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">table</span>(penguins, {
+  <span class="hljs-attr">width</span>: {
+    <span class="hljs-attr">culmen_length_mm</span>: <span class="hljs-number">140</span>,
+    <span class="hljs-attr">culmen_depth_mm</span>: <span class="hljs-number">140</span>,
+    <span class="hljs-attr">flipper_length_mm</span>: <span class="hljs-number">140</span>
+  },
+  <span class="hljs-attr">align</span>: {
+    <span class="hljs-attr">culmen_length_mm</span>: <span class="hljs-string">"right"</span>,
+    <span class="hljs-attr">culmen_depth_mm</span>: <span class="hljs-string">"center"</span>,
+    <span class="hljs-attr">flipper_length_mm</span>: <span class="hljs-string">"left"</span>
+  },
+  <span class="hljs-attr">rows</span>: <span class="hljs-number">18</span>,
+  <span class="hljs-attr">maxWidth</span>: <span class="hljs-number">840</span>,
+  <span class="hljs-attr">multiple</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">layout</span>: <span class="hljs-string">"fixed"</span>
+})
+</code></pre>
+</div><p>You can preselect some rows in the table by setting the <em>value</em> option to an
+array of references to the actual objects in your data.</p>
+<p>For example, to preselect the first two items, you could set <em>value</em> to:</p>
+<div><div id="cell-56ff2ac7" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">penguins.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>)
+</code></pre>
+</div><p>or, if you want to preselect the rows 1, 3, 7 and 9:</p>
+<div><div id="cell-9a12ae0f" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">[<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>].<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">i</span>) =&gt;</span> penguins[i])
+</code></pre>
+</div><p>The <em>multiple</em> option allows multiple rows to be selected (defaults to true).
+When false, only one row can be selected. To set the initial value in that case,
+just reference the preselected object:</p>
+<div><div id="cell-891fa1d0" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">penguins[<span class="hljs-number">4</span>]
+</code></pre>
+</div><div><div id="cell-72f08813" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">table</span>(penguins, {
+  <span class="hljs-attr">value</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>].<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">i</span>) =&gt;</span> penguins[i]),
+  <span class="hljs-attr">multiple</span>: <span class="hljs-literal">true</span>
+})
+</code></pre>
+</div><p>Thanks to <a href="https://observablehq.com/@oluckyman">Ilyá Belsky</a> and <a href="https://observablehq.com/@hellonearthis">Brett Cooper</a> for suggestions.</p>
+<h2 id="options" tabindex="-1"><a class="observablehq-header-anchor" href="#options">Options</a></h2>
+<p><strong>Inputs.table(<em>data</em>, <em>options</em>)</strong></p>
+<p>The available table input options are:</p>
+<ul>
+<li><em>columns</em> - the columns (property names) to show; defaults to <em>data</em>.columns</li>
+<li><em>value</em> - a subset of <em>data</em> to use as the initial selection (checked rows), or a <em>data</em> item if <em>multiple</em> is false</li>
+<li><em>rows</em> - the maximum number of rows to show; defaults to 11.5</li>
+<li><em>sort</em> - the column to sort by; defaults to null (input order)</li>
+<li><em>reverse</em> - whether to reverse the initial sort (descending instead of ascending)</li>
+<li><em>format</em> - an object of column name to format function</li>
+<li><em>align</em> - an object of column name to <em>left</em>, <em>right</em>, or <em>center</em></li>
+<li><em>header</em> - an object of column name to corresponding header; either a string or HTML element</li>
+<li><em>width</em> - the table width, or an object of column name to width</li>
+<li><em>maxWidth</em> - the maximum table width, if any</li>
+<li><em>height</em> - the fixed table height, if any</li>
+<li><em>maxHeight</em> - the maximum table height, if any; defaults to (<em>rows</em> + 1) * 22 - 1</li>
+<li><em>layout</em> - the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout">table layout</a>; defaults to fixed for ≤12 columns</li>
+<li><em>required</em> - if true, the table’s value is all <em>data</em> if no selection; defaults to true</li>
+<li><em>multiple</em> - if true, allow multiple rows to be selected; defaults to true</li>
+</ul>
+<p>If <em>width</em> is <em>auto</em>, the table width will be based on the table contents; note that this may cause the table to resize as rows are lazily rendered.</p>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./select"><span>Select</span></a><a rel="next" href="./text"><span>Text</span></a></nav>
+<div>© 2024 Observable, Inc.</div>
+</footer>
+</div>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Date input | Observable Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="../_import/style.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="../_import/style.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/htl@0.3.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/isoformat@0.2.1/+esm">
+<link rel="apple-touch-icon" href="https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png">
+<link rel="icon" type="image/png" href="https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png" sizes="512x512">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9B88TP6PKQ"></script>
+<script>window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-9B88TP6PKQ');</script>
+<script type="module" async src="../_import/analytics.js"></script>
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+
+define({id: "172e4755", inputs: ["view","Inputs"], outputs: ["date"], body: (view,Inputs) => {
+const date = view(Inputs.date());
+return {date};
+}});
+
+define({id: "426e0b84", inputs: ["date","display"], body: async (date,display) => {
+display(await(
+date
+))
+}});
+
+define({id: "6aca0fbf", inputs: ["view","Inputs"], outputs: ["start"], body: (view,Inputs) => {
+const start = view(Inputs.date({label: "Start", value: "2021-09-21"}));
+return {start};
+}});
+
+define({id: "46210ddd", inputs: ["start","display"], body: async (start,display) => {
+display(await(
+start
+))
+}});
+
+define({id: "f5d453dd", inputs: ["view","Inputs"], outputs: ["rdate"], body: (view,Inputs) => {
+const rdate = view(Inputs.date({label: "Date", required: true}));
+return {rdate};
+}});
+
+define({id: "aeeb322f", inputs: ["rdate","display"], body: async (rdate,display) => {
+display(await(
+rdate
+))
+}});
+
+define({id: "e7678fa8", inline: true, inputs: ["display"], body: async (display) => {
+display(await(
+Intl.DateTimeFormat().resolvedOptions().timeZone
+))
+}});
+
+define({id: "2eae5ba3", inputs: ["view","Inputs"], outputs: ["datetime"], body: (view,Inputs) => {
+const datetime = view(Inputs.datetime({label: "Moment"}));
+return {datetime};
+}});
+
+define({id: "5cc4e54b", inputs: ["datetime","display"], body: async (datetime,display) => {
+display(await(
+datetime
+))
+}});
+
+define({id: "1c735216", inputs: ["view","Inputs"], outputs: ["birthday"], body: (view,Inputs) => {
+const birthday = view(Inputs.date({label: "Birthday", min: "2021-01-01", max: "2021-12-31"}));
+return {birthday};
+}});
+
+define({id: "e4a0bb62", inputs: ["birthday","display"], body: async (birthday,display) => {
+display(await(
+birthday
+))
+}});
+
+define({id: "61e98bf3", inputs: ["view","Inputs"], outputs: ["sdate"], body: (view,Inputs) => {
+const sdate = view(Inputs.date({label: "Date", submit: true}));
+return {sdate};
+}});
+
+define({id: "091e8eb6", inputs: ["sdate","display"], body: async (sdate,display) => {
+display(await(
+sdate
+))
+}});
+
+define({id: "5d5faf80", inputs: ["view","Inputs"], outputs: ["fixed"], body: (view,Inputs) => {
+const fixed = view(Inputs.date({label: "Fixed date", value: "2021-01-01", disabled: true}));
+return {fixed};
+}});
+
+define({id: "0c307141", inputs: ["fixed","display"], body: async (fixed,display) => {
+display(await(
+fixed
+))
+}});
+
+define({id: "de4c983f", inputs: ["view","Inputs"], outputs: ["readonly"], body: (view,Inputs) => {
+const readonly = view(Inputs.date({label: "Readonly date", value: "2021-01-01", readonly: true}));
+return {readonly};
+}});
+
+define({id: "e8556b2a", inputs: ["readonly","display"], body: async (readonly,display) => {
+display(await(
+readonly
+))
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="../">Observable Framework</a></li>
+  </ol>
+  <div id="observablehq-search" data-root="../"><input type="search" placeholder="Search"></div>
+  <div id="observablehq-search-results"></div>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),s=o.getAttribute("data-root"),a=()=>import(`${s}_observablehq/search.js`);t.addEventListener("focus",a,{once:!0}),t.addEventListener("keydown",a,{once:!0});const r=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(r.classList.add("observablehq-sidebar-open"),t.focus(),t.select(),e.preventDefault())}),t.addEventListener("blur",()=>r.classList.remove("observablehq-sidebar-open"));}</script>
+  <ol>
+    <li class="observablehq-link"><a href="../getting-started">Getting started</a></li>
+    <li class="observablehq-link"><a href="../routing">Routing</a></li>
+    <li class="observablehq-link"><a href="../markdown">Markdown</a></li>
+    <li class="observablehq-link"><a href="../javascript">JavaScript</a></li>
+    <li class="observablehq-link"><a href="../loaders">Data loaders</a></li>
+    <li class="observablehq-link"><a href="../themes">Themes</a></li>
+    <li class="observablehq-link"><a href="../config">Configuration</a></li></ol>
+    <details>
+      <summary>JavaScript</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../javascript/reactivity">Reactivity</a></li>
+    <li class="observablehq-link"><a href="../javascript/display">Display</a></li>
+    <li class="observablehq-link"><a href="../javascript/inputs">Inputs</a></li>
+    <li class="observablehq-link"><a href="../javascript/imports">Imports</a></li>
+    <li class="observablehq-link"><a href="../javascript/files">Files</a></li>
+    <li class="observablehq-link"><a href="../javascript/promises">Promises</a></li>
+    <li class="observablehq-link"><a href="../javascript/generators">Generators</a></li>
+    <li class="observablehq-link"><a href="../javascript/mutables">Mutables</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>CSS</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../css/card">Card</a></li>
+    <li class="observablehq-link"><a href="../css/color">Color</a></li>
+    <li class="observablehq-link"><a href="../css/grid">Grid</a></li>
+    <li class="observablehq-link"><a href="../css/note">Note</a></li>
+      </ol>
+    </details>
+    <details open class="observablehq-section-active">
+      <summary>Inputs</summary>
+      <ol>
+    <li class="observablehq-link"><a href="./button">Button</a></li>
+    <li class="observablehq-link"><a href="./checkbox">Checkbox</a></li>
+    <li class="observablehq-link"><a href="./color">Color</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./date">Date</a></li>
+    <li class="observablehq-link"><a href="./file">File</a></li>
+    <li class="observablehq-link"><a href="./form">Form</a></li>
+    <li class="observablehq-link"><a href="./radio">Radio</a></li>
+    <li class="observablehq-link"><a href="./range">Range</a></li>
+    <li class="observablehq-link"><a href="./search">Search</a></li>
+    <li class="observablehq-link"><a href="./select">Select</a></li>
+    <li class="observablehq-link"><a href="./table">Table</a></li>
+    <li class="observablehq-link"><a href="./text">Text</a></li>
+    <li class="observablehq-link"><a href="./textarea">Textarea</a></li>
+    <li class="observablehq-link"><a href="./toggle">Toggle</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Libraries</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../lib/arrow">Apache Arrow</a></li>
+    <li class="observablehq-link"><a href="../lib/arquero">Arquero</a></li>
+    <li class="observablehq-link"><a href="../lib/csv">CSV</a></li>
+    <li class="observablehq-link"><a href="../lib/d3">D3</a></li>
+    <li class="observablehq-link"><a href="../lib/dot">DOT (Graphviz)</a></li>
+    <li class="observablehq-link"><a href="../lib/duckdb">DuckDB</a></li>
+    <li class="observablehq-link"><a href="../lib/htl">Hypertext Literal</a></li>
+    <li class="observablehq-link"><a href="../lib/leaflet">Leaflet</a></li>
+    <li class="observablehq-link"><a href="../lib/lodash">Lodash</a></li>
+    <li class="observablehq-link"><a href="../lib/mapbox-gl">Mapbox GL JS</a></li>
+    <li class="observablehq-link"><a href="../lib/mermaid">Mermaid</a></li>
+    <li class="observablehq-link"><a href="../lib/xlsx">Microsoft Excel (XLSX)</a></li>
+    <li class="observablehq-link"><a href="../lib/generators">Observable Generators</a></li>
+    <li class="observablehq-link"><a href="../lib/inputs">Observable Inputs</a></li>
+    <li class="observablehq-link"><a href="../lib/plot">Observable Plot</a></li>
+    <li class="observablehq-link"><a href="../lib/shapefile">Shapefile</a></li>
+    <li class="observablehq-link"><a href="../lib/sqlite">SQLite</a></li>
+    <li class="observablehq-link"><a href="../lib/tex">TeX</a></li>
+    <li class="observablehq-link"><a href="../lib/topojson">TopoJSON</a></li>
+    <li class="observablehq-link"><a href="../lib/vega-lite">Vega-Lite</a></li>
+    <li class="observablehq-link"><a href="../lib/zip">ZIP</a></li>
+      </ol>
+    </details>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="../contributing">Contributing</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),o=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?o.checked=r==="true":o.indeterminate=!0;for(const t of document.querySelectorAll("#observablehq-sidebar summary")){const s=t.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${t.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="#observablehq-main h1:not(:first-of-type), #observablehq-main h2:not(h1 + h2):has(a.observablehq-header-anchor)">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#options">Options</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; align-items: center; gap: 0.5rem; height: 2.2rem; margin: -1.5rem -2rem 2rem -2rem; padding: 0.5rem 2rem; border-bottom: solid 1px var(--theme-foreground-faintest); font: 500 16px var(--sans-serif);">
+  <a href="https://observablehq.com/" style="display: flex; align-items: center;">
+    <svg width="22" height="22" viewBox="0 0 21.92930030822754 22.68549919128418" fill="currentColor">
+      <path d="M10.9646 18.9046C9.95224 18.9046 9.07507 18.6853 8.33313 18.2467C7.59386 17.8098 7.0028 17.1909 6.62722 16.4604C6.22789 15.7003 5.93558 14.8965 5.75735 14.0684C5.56825 13.1704 5.47613 12.2574 5.48232 11.3427C5.48232 10.6185 5.52984 9.92616 5.62578 9.26408C5.7208 8.60284 5.89715 7.93067 6.15391 7.24843C6.41066 6.56618 6.74143 5.97468 7.14438 5.47308C7.56389 4.9592 8.1063 4.54092 8.72969 4.25059C9.38391 3.93719 10.1277 3.78091 10.9646 3.78091C11.977 3.78091 12.8542 4.00021 13.5962 4.43879C14.3354 4.87564 14.9265 5.49454 15.3021 6.22506C15.6986 6.97704 15.9883 7.7744 16.1719 8.61712C16.3547 9.459 16.447 10.3681 16.447 11.3427C16.447 12.067 16.3995 12.7593 16.3035 13.4214C16.2013 14.1088 16.0206 14.7844 15.7644 15.437C15.4994 16.1193 15.1705 16.7108 14.7739 17.2124C14.3774 17.714 13.8529 18.1215 13.1996 18.4349C12.5463 18.7483 11.8016 18.9046 10.9646 18.9046ZM12.8999 13.3447C13.4242 12.8211 13.7159 12.0966 13.7058 11.3427C13.7058 10.5639 13.4436 9.89654 12.92 9.34074C12.3955 8.78495 11.7441 8.50705 10.9646 8.50705C10.1852 8.50705 9.53376 8.78495 9.00928 9.34074C8.49569 9.87018 8.21207 10.5928 8.22348 11.3427C8.22348 12.1216 8.48572 12.7889 9.00928 13.3447C9.53376 13.9005 10.1852 14.1784 10.9646 14.1784C11.7441 14.1784 12.3891 13.9005 12.8999 13.3447ZM10.9646 22.6855C17.0199 22.6855 21.9293 17.6068 21.9293 11.3427C21.9293 5.07871 17.0199 0 10.9646 0C4.90942 0 0 5.07871 0 11.3427C0 17.6068 4.90942 22.6855 10.9646 22.6855Z"></path>
+    </svg>
+  </a>
+  <div style="display: flex; flex-grow: 1; justify-content: space-between; align-items: baseline;">
+    <a href="https://observablehq.com/framework/">
+      <span class="hide-if-small">Observable</span> Framework
+    </a>
+    <span style="display: flex; align-items: baseline; gap: 0.5rem; font-size: 14px;">
+      <a target="_blank" href="https://github.com/observablehq/framework/releases"><span>1.0.0</span></a>
+      <a target="_blank" href="https://github.com/observablehq/framework"><span>GitHub</span></a>
+    </span>
+  </div>
+</div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="date-input" tabindex="-1"><a class="observablehq-header-anchor" href="#date-input">Date input</a></h1>
+<p><a href="https://github.com/observablehq/inputs/blob/main/README.md#date" target="_blank">API</a> · <a href="https://github.com/observablehq/inputs/blob/main/src/date.js" target="_blank">Source</a> · The date input specifies a date.</p>
+<div><div id="cell-172e4755" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> date = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">date</span>());
+</code></pre>
+</div><div><div id="cell-426e0b84" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">date
+</code></pre>
+</div><p>We recommend providing a <em>label</em> to improve usability. You can also supply an initial <em>value</em>; this can be specified as a Date instance, a string of the form <em>YYYY-MM-DD</em>, or the corresponding number of milliseconds since UNIX epoch.</p>
+<div><div id="cell-6aca0fbf" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> start = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">date</span>({<span class="hljs-attr">label</span>: <span class="hljs-string">"Start"</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">"2021-09-21"</span>}));
+</code></pre>
+</div><div><div id="cell-46210ddd" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">start
+</code></pre>
+</div><p>The value of a date input is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> instance at UTC midnight, or null if an initial value is not specified. If the <em>required</em> option is set to true, then the initial value of the date input will be undefined instead of null, causing referencing cells to wait until a valid input is entered.</p>
+<div><div id="cell-f5d453dd" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> rdate = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">date</span>({<span class="hljs-attr">label</span>: <span class="hljs-string">"Date"</span>, <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>}));
+</code></pre>
+</div><div><div id="cell-aeeb322f" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">rdate
+</code></pre>
+</div><p>The datetime input is similar to the date input, except it allows a time to be specified in addition to a date. The time is specified in the user’s local time zone (for you, that’s <span id="cell-e7678fa8" class="observablehq--loading"></span>). Like a date input, the value is exposed as a Date instance. Dates are formatted by the Observable inspector as UTC; note the <code>Z</code>.</p>
+<div><div id="cell-2eae5ba3" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> datetime = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">datetime</span>({<span class="hljs-attr">label</span>: <span class="hljs-string">"Moment"</span>}));
+</code></pre>
+</div><div><div id="cell-5cc4e54b" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">datetime
+</code></pre>
+</div><p>The <em>min</em> and <em>max</em> option allow you to set a lower and upper bound for valid inputs. Like the <em>value</em> option, these options may be specified either as a Date instance, as <em>YYYY-MM-DD</em> strings, or epoch milliseconds.</p>
+<div><div id="cell-1c735216" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> birthday = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">date</span>({<span class="hljs-attr">label</span>: <span class="hljs-string">"Birthday"</span>, <span class="hljs-attr">min</span>: <span class="hljs-string">"2021-01-01"</span>, <span class="hljs-attr">max</span>: <span class="hljs-string">"2021-12-31"</span>}));
+</code></pre>
+</div><div><div id="cell-e4a0bb62" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">birthday
+</code></pre>
+</div><p>If the input will trigger some expensive calculation, such as fetching from a remote server, the <em>submit</em> option can be used to defer the input from reporting the new value until the user clicks the Submit button or hits Enter. The value of <em>submit</em> can also be the desired contents of the submit button (a string or HTML).</p>
+<div><div id="cell-61e98bf3" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> sdate = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">date</span>({<span class="hljs-attr">label</span>: <span class="hljs-string">"Date"</span>, <span class="hljs-attr">submit</span>: <span class="hljs-literal">true</span>}));
+</code></pre>
+</div><div><div id="cell-091e8eb6" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">sdate
+</code></pre>
+</div><p>To prevent the value from being changed, use the <em>disabled</em> or <em>readonly</em> option.</p>
+<div><div id="cell-5d5faf80" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> fixed = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">date</span>({<span class="hljs-attr">label</span>: <span class="hljs-string">"Fixed date"</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">"2021-01-01"</span>, <span class="hljs-attr">disabled</span>: <span class="hljs-literal">true</span>}));
+</code></pre>
+</div><div><div id="cell-0c307141" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">fixed
+</code></pre>
+</div><div><div id="cell-de4c983f" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> readonly = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">date</span>({<span class="hljs-attr">label</span>: <span class="hljs-string">"Readonly date"</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">"2021-01-01"</span>, <span class="hljs-attr">readonly</span>: <span class="hljs-literal">true</span>}));
+</code></pre>
+</div><div><div id="cell-e8556b2a" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js">readonly
+</code></pre>
+</div><h2 id="options" tabindex="-1"><a class="observablehq-header-anchor" href="#options">Options</a></h2>
+<p><strong>Inputs.date(<em>options</em>)</strong></p>
+<p>The available date input options are:</p>
+<ul>
+<li><em>label</em> - a label; either a string or an HTML element</li>
+<li><em>value</em> - the initial value as a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a> or <code>YYYY-MM-DD</code> string; defaults to null</li>
+<li><em>min</em> - <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/min">minimum value</a> attribute</li>
+<li><em>max</em> - <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/max">maximum value</a> attribute</li>
+<li><em>required</em> - if true, the input must be a valid date</li>
+<li><em>validate</em> - a function to check whether the text input is valid</li>
+<li><em>width</em> - the width of the input (not including the label)</li>
+<li><em>submit</em> - whether to require explicit submission; defaults to false</li>
+<li><em>readonly</em> - whether input is readonly; defaults to false</li>
+<li><em>disabled</em> - whether input is disabled; defaults to false</li>
+</ul>
+<p>The value of the input is a Date instance at UTC midnight of the specified date, or null if no (valid) value has been specified. Note that the displayed date format is <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date">based on the browser’s locale</a>.</p>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./color"><span>Color</span></a><a rel="next" href="./file"><span>File</span></a></nav>
+<div>© 2024 Observable, Inc.</div>
+</footer>
+</div>

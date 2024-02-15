@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>JavaScript: Imports | Observable Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="../_import/style.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="../_import/style.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="../_import/javascript/foo.js?sha=92cd58cd10d9a20a34eaa4ac95ca324f16e33da431bd103f6afb019e2933be7e">
+<link rel="modulepreload" href="../_observablehq/client.js">
+<link rel="modulepreload" href="../_observablehq/runtime.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/htl@0.3.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/isoformat@0.2.1/+esm">
+<link rel="apple-touch-icon" href="https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png">
+<link rel="icon" type="image/png" href="https://static.observablehq.com/favicon-512.0667824687f99c942a02e06e2db1a060911da0bf3606671676a255b1cf97b4fe.png" sizes="512x512">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9B88TP6PKQ"></script>
+<script>window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-9B88TP6PKQ');</script>
+<script type="module" async src="../_import/analytics.js"></script>
+<script type="module">
+
+import {define} from "../_observablehq/client.js";
+
+define({id: "8235d21f", outputs: ["confetti"], body: async () => {
+const {default: confetti} = await import("https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/+esm");
+
+return {confetti};
+}});
+
+define({id: "a2c93e74", inputs: ["Inputs","confetti","display"], body: async (Inputs,confetti,display) => {
+display(await(
+Inputs.button("Throw confetti!", {reduce: () => confetti()})
+))
+}});
+
+define({id: "7b2aa8e3", outputs: ["foo"], body: async () => {
+const {foo} = await import("../_import/javascript/foo.js?sha=92cd58cd10d9a20a34eaa4ac95ca324f16e33da431bd103f6afb019e2933be7e");
+
+return {foo};
+}});
+
+define({id: "2c26b46b", inline: true, inputs: ["foo","display"], body: async (foo,display) => {
+display(await(
+foo
+))
+}});
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="../">Observable Framework</a></li>
+  </ol>
+  <div id="observablehq-search" data-root="../"><input type="search" placeholder="Search"></div>
+  <div id="observablehq-search-results"></div>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),s=o.getAttribute("data-root"),a=()=>import(`${s}_observablehq/search.js`);t.addEventListener("focus",a,{once:!0}),t.addEventListener("keydown",a,{once:!0});const r=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(r.classList.add("observablehq-sidebar-open"),t.focus(),t.select(),e.preventDefault())}),t.addEventListener("blur",()=>r.classList.remove("observablehq-sidebar-open"));}</script>
+  <ol>
+    <li class="observablehq-link"><a href="../getting-started">Getting started</a></li>
+    <li class="observablehq-link"><a href="../routing">Routing</a></li>
+    <li class="observablehq-link"><a href="../markdown">Markdown</a></li>
+    <li class="observablehq-link"><a href="../javascript">JavaScript</a></li>
+    <li class="observablehq-link"><a href="../loaders">Data loaders</a></li>
+    <li class="observablehq-link"><a href="../themes">Themes</a></li>
+    <li class="observablehq-link"><a href="../config">Configuration</a></li></ol>
+    <details open class="observablehq-section-active">
+      <summary>JavaScript</summary>
+      <ol>
+    <li class="observablehq-link"><a href="./reactivity">Reactivity</a></li>
+    <li class="observablehq-link"><a href="./display">Display</a></li>
+    <li class="observablehq-link"><a href="./inputs">Inputs</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./imports">Imports</a></li>
+    <li class="observablehq-link"><a href="./files">Files</a></li>
+    <li class="observablehq-link"><a href="./promises">Promises</a></li>
+    <li class="observablehq-link"><a href="./generators">Generators</a></li>
+    <li class="observablehq-link"><a href="./mutables">Mutables</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>CSS</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../css/card">Card</a></li>
+    <li class="observablehq-link"><a href="../css/color">Color</a></li>
+    <li class="observablehq-link"><a href="../css/grid">Grid</a></li>
+    <li class="observablehq-link"><a href="../css/note">Note</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Inputs</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../inputs/button">Button</a></li>
+    <li class="observablehq-link"><a href="../inputs/checkbox">Checkbox</a></li>
+    <li class="observablehq-link"><a href="../inputs/color">Color</a></li>
+    <li class="observablehq-link"><a href="../inputs/date">Date</a></li>
+    <li class="observablehq-link"><a href="../inputs/file">File</a></li>
+    <li class="observablehq-link"><a href="../inputs/form">Form</a></li>
+    <li class="observablehq-link"><a href="../inputs/radio">Radio</a></li>
+    <li class="observablehq-link"><a href="../inputs/range">Range</a></li>
+    <li class="observablehq-link"><a href="../inputs/search">Search</a></li>
+    <li class="observablehq-link"><a href="../inputs/select">Select</a></li>
+    <li class="observablehq-link"><a href="../inputs/table">Table</a></li>
+    <li class="observablehq-link"><a href="../inputs/text">Text</a></li>
+    <li class="observablehq-link"><a href="../inputs/textarea">Textarea</a></li>
+    <li class="observablehq-link"><a href="../inputs/toggle">Toggle</a></li>
+      </ol>
+    </details>
+    <details>
+      <summary>Libraries</summary>
+      <ol>
+    <li class="observablehq-link"><a href="../lib/arrow">Apache Arrow</a></li>
+    <li class="observablehq-link"><a href="../lib/arquero">Arquero</a></li>
+    <li class="observablehq-link"><a href="../lib/csv">CSV</a></li>
+    <li class="observablehq-link"><a href="../lib/d3">D3</a></li>
+    <li class="observablehq-link"><a href="../lib/dot">DOT (Graphviz)</a></li>
+    <li class="observablehq-link"><a href="../lib/duckdb">DuckDB</a></li>
+    <li class="observablehq-link"><a href="../lib/htl">Hypertext Literal</a></li>
+    <li class="observablehq-link"><a href="../lib/leaflet">Leaflet</a></li>
+    <li class="observablehq-link"><a href="../lib/lodash">Lodash</a></li>
+    <li class="observablehq-link"><a href="../lib/mapbox-gl">Mapbox GL JS</a></li>
+    <li class="observablehq-link"><a href="../lib/mermaid">Mermaid</a></li>
+    <li class="observablehq-link"><a href="../lib/xlsx">Microsoft Excel (XLSX)</a></li>
+    <li class="observablehq-link"><a href="../lib/generators">Observable Generators</a></li>
+    <li class="observablehq-link"><a href="../lib/inputs">Observable Inputs</a></li>
+    <li class="observablehq-link"><a href="../lib/plot">Observable Plot</a></li>
+    <li class="observablehq-link"><a href="../lib/shapefile">Shapefile</a></li>
+    <li class="observablehq-link"><a href="../lib/sqlite">SQLite</a></li>
+    <li class="observablehq-link"><a href="../lib/tex">TeX</a></li>
+    <li class="observablehq-link"><a href="../lib/topojson">TopoJSON</a></li>
+    <li class="observablehq-link"><a href="../lib/vega-lite">Vega-Lite</a></li>
+    <li class="observablehq-link"><a href="../lib/zip">ZIP</a></li>
+      </ol>
+    </details>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="../contributing">Contributing</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),o=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?o.checked=r==="true":o.indeterminate=!0;for(const t of document.querySelectorAll("#observablehq-sidebar summary")){const s=t.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${t.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<aside id="observablehq-toc" data-selector="#observablehq-main h1:not(:first-of-type), #observablehq-main h2:not(h1 + h2):has(a.observablehq-header-anchor)">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#npm-imports">npm imports</a></li>
+<li class="observablehq-secondary-link"><a href="#local-imports">Local imports</a></li>
+<li class="observablehq-secondary-link"><a href="#module-preloads">Module preloads</a></li>
+<li class="observablehq-secondary-link"><a href="#implicit-imports">Implicit imports</a></li>
+<li class="observablehq-secondary-link"><a href="#require">Require</a></li>
+</ol>
+</nav>
+</aside>
+<div id="observablehq-center">
+<header id="observablehq-header">
+<div style="display: flex; align-items: center; gap: 0.5rem; height: 2.2rem; margin: -1.5rem -2rem 2rem -2rem; padding: 0.5rem 2rem; border-bottom: solid 1px var(--theme-foreground-faintest); font: 500 16px var(--sans-serif);">
+  <a href="https://observablehq.com/" style="display: flex; align-items: center;">
+    <svg width="22" height="22" viewBox="0 0 21.92930030822754 22.68549919128418" fill="currentColor">
+      <path d="M10.9646 18.9046C9.95224 18.9046 9.07507 18.6853 8.33313 18.2467C7.59386 17.8098 7.0028 17.1909 6.62722 16.4604C6.22789 15.7003 5.93558 14.8965 5.75735 14.0684C5.56825 13.1704 5.47613 12.2574 5.48232 11.3427C5.48232 10.6185 5.52984 9.92616 5.62578 9.26408C5.7208 8.60284 5.89715 7.93067 6.15391 7.24843C6.41066 6.56618 6.74143 5.97468 7.14438 5.47308C7.56389 4.9592 8.1063 4.54092 8.72969 4.25059C9.38391 3.93719 10.1277 3.78091 10.9646 3.78091C11.977 3.78091 12.8542 4.00021 13.5962 4.43879C14.3354 4.87564 14.9265 5.49454 15.3021 6.22506C15.6986 6.97704 15.9883 7.7744 16.1719 8.61712C16.3547 9.459 16.447 10.3681 16.447 11.3427C16.447 12.067 16.3995 12.7593 16.3035 13.4214C16.2013 14.1088 16.0206 14.7844 15.7644 15.437C15.4994 16.1193 15.1705 16.7108 14.7739 17.2124C14.3774 17.714 13.8529 18.1215 13.1996 18.4349C12.5463 18.7483 11.8016 18.9046 10.9646 18.9046ZM12.8999 13.3447C13.4242 12.8211 13.7159 12.0966 13.7058 11.3427C13.7058 10.5639 13.4436 9.89654 12.92 9.34074C12.3955 8.78495 11.7441 8.50705 10.9646 8.50705C10.1852 8.50705 9.53376 8.78495 9.00928 9.34074C8.49569 9.87018 8.21207 10.5928 8.22348 11.3427C8.22348 12.1216 8.48572 12.7889 9.00928 13.3447C9.53376 13.9005 10.1852 14.1784 10.9646 14.1784C11.7441 14.1784 12.3891 13.9005 12.8999 13.3447ZM10.9646 22.6855C17.0199 22.6855 21.9293 17.6068 21.9293 11.3427C21.9293 5.07871 17.0199 0 10.9646 0C4.90942 0 0 5.07871 0 11.3427C0 17.6068 4.90942 22.6855 10.9646 22.6855Z"></path>
+    </svg>
+  </a>
+  <div style="display: flex; flex-grow: 1; justify-content: space-between; align-items: baseline;">
+    <a href="https://observablehq.com/framework/">
+      <span class="hide-if-small">Observable</span> Framework
+    </a>
+    <span style="display: flex; align-items: baseline; gap: 0.5rem; font-size: 14px;">
+      <a target="_blank" href="https://github.com/observablehq/framework/releases"><span>1.0.0</span></a>
+      <a target="_blank" href="https://github.com/observablehq/framework"><span>GitHub</span></a>
+    </span>
+  </div>
+</div>
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="javascript%3A-imports" tabindex="-1"><a class="observablehq-header-anchor" href="#javascript%3A-imports">JavaScript: Imports</a></h1>
+<p>You can load a library using an <code>import</code> statement. For example:</p>
+<div><div id="cell-8235d21f" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> confetti <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:canvas-confetti"</span>;
+</code></pre>
+</div><div class="tip">Thanks to <a href="./reactivity">reactivity</a>, imports can live in a JavaScript block anywhere on the page. But by convention, imports are commonly placed at the top of source files for readability.</div>
+<p>You can use an imported library anywhere on the page.</p>
+<div><div id="cell-a2c93e74" class="observablehq observablehq--block observablehq--loading"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">button</span>(<span class="hljs-string">"Throw confetti!"</span>, {<span class="hljs-attr">reduce</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">confetti</span>()})
+</code></pre>
+</div><h2 id="npm-imports" tabindex="-1"><a class="observablehq-header-anchor" href="#npm-imports">npm imports</a></h2>
+<p>An <code>npm:</code> specifier, as shown above, denotes that the imported library will be loaded from npm rather than from <code>node_modules</code>. You don’t have to install imported libraries beforehand —&#160;just import, and the cloud shall provide. (This convention is also <a href="https://docs.deno.com/runtime/manual/node/npm_specifiers">used by Deno</a>.)</p>
+<p>Under the hood, <code>npm:</code> imports are powered by <a href="https://www.jsdelivr.com/esm">jsDelivr’s esm.run CDN</a>. The import above is thus equivalent to:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> confetti <span class="hljs-keyword">from</span> <span class="hljs-string">"https://cdn.jsdelivr.net/npm/canvas-confetti/+esm"</span>;
+</code></pre>
+<div class="note">We plan on supporting importing from <code>node_modules</code> using bare module specifiers (<i>e.g.</i>, <code>import confetti from "canvas-confetti"</code>). If you’d like this feature, please upvote <a href="https://github.com/observablehq/framework/issues/360">#360</a>.</div>
+<p>To load a specific version of a library, add a semver range:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> confetti <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:canvas-confetti@1"</span>;
+</code></pre>
+<p>To load a specific entry point, add a slash and the desired path:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> confetti <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:canvas-confetti@1/dist/confetti.module.mjs"</span>;
+</code></pre>
+<p>If you’re having difficulty getting an import working, it may help to browse the package and see what files are available as well as what’s exported in the <code>package.json</code>. You can browse the contents of a published module via jsDelivr; for example, for <code>canvas-confetti</code> see <a href="https://cdn.jsdelivr.net/npm/canvas-confetti/">https://cdn.jsdelivr.net/npm/canvas-confetti/</a>.</p>
+<h2 id="local-imports" tabindex="-1"><a class="observablehq-header-anchor" href="#local-imports">Local imports</a></h2>
+<p>In addition to npm, you can import JavaScript from local modules. This is useful for organizing your code: you can move JavaScript out of Markdown and create components and helpers that can be imported across multiple pages. This also means you can write unit tests for your code, and share code with any other web applications.</p>
+<p>For example, if this is <code>foo.js</code>:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-number">42</span>;
+</code></pre>
+<p>Then you can say</p>
+<div><div id="cell-7b2aa8e3" class="observablehq observablehq--block"></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> {foo} <span class="hljs-keyword">from</span> <span class="hljs-string">"./foo.js"</span>;
+</code></pre>
+</div><p>and the imported value of <code>foo</code> is: <span id="cell-2c26b46b" class="observablehq--loading"></span>.</p>
+<p>Observable Framework automatically watches imported local modules during preview, so any changes to these files will instantly update in the browser via hot module replacement.</p>
+<div class="note">While there is <a href="./reactivity">reactivity</a> across <a href="../javascript">JavaScript code blocks</a> in Markdown, there’s no reactivity within a JavaScript module. However, you can write <a href="./promises">async functions</a> and <a href="./generators">generator functions</a> to define reactive variables. And you can import the Observable standard library into local modules, so you can reference <a href="./files">files</a> and use other standard library features.</div>
+<h2 id="module-preloads" tabindex="-1"><a class="observablehq-header-anchor" href="#module-preloads">Module preloads</a></h2>
+<p>During build, Observable Framework will resolve the current exact version of the imported library from npm. Importing <code>npm:canvas-confetti</code> is thus equivalent to:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> confetti <span class="hljs-keyword">from</span> <span class="hljs-string">"https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/+esm"</span>;
+</code></pre>
+<p>Version resolution locks the version of imported libraries so you don’t have to worry about new releases breaking your built site in the future. At the same time, you’ll conveniently get the latest version of libraries during local development and the next time you build.</p>
+<p>In addition to resolving versions of directly-imported modules, Observable Framework recursively resolves dependencies, too! All transitively imported modules are automatically preloaded, greatly improving page load speed because the browser requests all imported modules in parallel.</p>
+<pre data-language="html"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"modulepreload"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/+esm"</span>&gt;</span>
+</code></pre>
+<div class="note">We’d also like to download imported modules from the CDN during build, making the built site entirely self-contained; see <a href="https://github.com/observablehq/framework/issues/20">#20</a>. This would further enable subresource integrity hashes; see <a href="https://github.com/observablehq/framework/issues/306">#306</a>.</div>
+<h2 id="implicit-imports" tabindex="-1"><a class="observablehq-header-anchor" href="#implicit-imports">Implicit imports</a></h2>
+<p>For convenience, Observable Framework provides recommended libraries by default in Markdown. These implicit imports are only evaluated if you reference the corresponding symbol and hence don’t add overhead if you don’t use them; for example, D3 won’t be loaded unless you have an unbound reference to <code>d3</code>.</p>
+<p>Click on any of the imported symbols below to learn more.</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> {<a href="./files">FileAttachment</a>} <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/stdlib"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> {<a href="./generators">Generators</a>} <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/stdlib"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> {<a href="./mutables">Mutable</a>} <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/stdlib"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> <a href="../lib/dot">dot</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/dot"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <a href="../lib/duckdb">duckdb</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@duckdb/duckdb-wasm"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> {<a href="../lib/duckdb">DuckDBClient</a>} <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/duckdb"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <a href="../lib/inputs">Inputs</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/inputs"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> <a href="../lib/mapbox-gl">mapboxgl</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:mapbox-gl"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> <a href="../lib/mermaid">mermaid</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/mermaid"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <a href="../lib/plot">Plot</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/plot"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> <a href="../lib/sqlite">SQLite</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/sqlite"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> {<a href="../lib/sqlite">SQLiteDatabaseClient</a>} <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/sqlite"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> <a href="../lib/tex">tex</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:@observablehq/tex"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <a href="../lib/arrow">Arrow</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:apache-arrow"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <a href="../lib/arquero">aq</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:arquero"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <a href="../lib/d3">d3</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:d3"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <a href="../lib/htl">htl</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:htl"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> {<a href="../lib/htl">html</a>} <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:htl"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> {<a href="../lib/htl">svg</a>} <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:htl"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <a href="../lib/leaflet">L</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:leaflet"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> <a href="../lib/lodash">_</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:lodash"</span>;</code></pre>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> <a href="../lib/topojson">topojson</a> <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:topojson-client"</span>;</code></pre>
+<h2 id="require" tabindex="-1"><a class="observablehq-header-anchor" href="#require">Require</a></h2>
+<p>If you’re familiar with Observable notebooks, you may have noticed that we don’t mention <code>require</code> above. We recommend that you avoid <code>require</code> as the underlying Asynchronous Module Definition (AMD) convention has been made obsolete by standard imports in JavaScript, and AMD tends to be implemented inconsistently by libraries.</p>
+<p>If you really need <code>require</code>, you can import it from <a href="https://github.com/d3/d3-require">d3-require</a>:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">import</span> {<span class="hljs-built_in">require</span>} <span class="hljs-keyword">from</span> <span class="hljs-string">"npm:d3-require"</span>;
+</code></pre>
+<p>Then you can call <code>require</code> like so:</p>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> d3 = <span class="hljs-built_in">require</span>(<span class="hljs-string">"d3@5"</span>);
+</code></pre>
+<div class="tip">We recommend that you use <code>import</code> instead of <code>require</code>: it’s the modern standard, more reliable, more forward-looking, and faster.</div>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./inputs"><span>Inputs</span></a><a rel="next" href="./files"><span>Files</span></a></nav>
+<div>© 2024 Observable, Inc.</div>
+</footer>
+</div>
